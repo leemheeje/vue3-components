@@ -41,6 +41,7 @@ function onInput(event:Event) {
 
 <template>
   <div>
+    얘는 2번째 컴포넌트야
     <input type="text" :value="localValue" @input="onInput"/>
     {{ localValue }}<br/>
     {{ JSON.stringify(globalCustomStyle) }}<br/>

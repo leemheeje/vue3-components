@@ -3,4 +3,8 @@ import './style.css'
 import App from './App.vue'
 import testleem from '../lib/main'
 
-createApp(App).use(testleem).mount('#app')
+createApp(App).use(testleem, {
+    customStyle:{
+        background: 'defaultBackground'
+    }
+}).mount('#app')

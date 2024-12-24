@@ -1,0 +1,31 @@
+{
+  "name": "test-leem-vue3-components",
+  "private": false,
+  "version": "0.0.0",
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/test-leem.umd.cjs",
+  "module": "./dist/test-leem.js",
+  "exports": {
+    ".": {
+      "import": "./dist/test-leem.js",
+      "require": "./dist/test-leem.umd.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/tsconfig": "^0.7.0",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.5",
+    "vue-tsc": "^2.2.0"
+  }
+}

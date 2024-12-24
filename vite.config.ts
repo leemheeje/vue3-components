@@ -1,27 +1,4 @@
-# test-leem test build
-
-## /lib/main.ts 작성
-```
-export default{
-    install: (app:any)=>{
-        app.config.globalProperties.$testleem = (s:any)=>{
-            console.log(s);
-            return `hello plugins params : ${s}`
-        }
-    }
-}
-```
-## /src/main.ts 에서 
-```
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
-import testleem from '../lib/main'
-
-createApp(App).use(testleem).mount('#app')
-```
-## vite.config.ts
-```// vite.config.js
+// vite.config.js
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -50,26 +27,3 @@ export default defineConfig({
     }
   }
 })
-```
-
-
-## package.json
-```
-{
-    "private": false,
-     "main": "./dist/test-leem.umd.cjs",
-    "module": "./dist/test-leem.js",
-    "exports": {
-        ".": {
-        "import": "./dist/test-leem.js",
-        "require": "./dist/test-leem.umd.cjs"
-        }
-    },
-}
-```
-
-## cmd
-```
-npm adduser
-```
-

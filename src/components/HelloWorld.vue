@@ -4,6 +4,7 @@ import { ref } from 'vue'
 defineProps<{ msg: string }>()
 
 const count = ref(0)
+const value1 = ref('초기인풋값 가나요?')
 </script>
 
 <template>
@@ -11,6 +12,7 @@ const count = ref(0)
   <h1>{{ $testleem('임희재') }}</h1>
 
   <div class="card">
+    <TestLeem v-model="value1" />
     <button type="button" @click="count++">count is {{ count }}</button>
     <p>
       Edit

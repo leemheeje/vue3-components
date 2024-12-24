@@ -72,4 +72,14 @@ export default defineConfig({
 ```
 npm adduser
 ```
+npmjs.com 로그인 후 
+```
+npm publish --access public <-- 초기에만
+```
+```
+/버전업 할때
+npm version major | minor | patch
+npm publish
+```
+
 

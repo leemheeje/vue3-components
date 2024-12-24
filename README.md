@@ -70,6 +70,11 @@ export default defineConfig({
 
 ## cmd
 ```
+작업완료 후 
+npm run build
+```
+/dist/.. 파일 업데이트
+```
 npm adduser
 ```
 npmjs.com 로그인 후 

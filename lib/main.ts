@@ -1,4 +1,4 @@
-import TestLeem from '../src/components/TestLeem.vue'
+import TestLeem1 from '../src/components/TestLeem.vue'
 import TestLeem2 from '../src/components/TestLeem2.vue'
 
 export default{
@@ -14,6 +14,6 @@ export default{
 }
 
 export {
-    TestLeem,
+    TestLeem1,
     TestLeem2
 }

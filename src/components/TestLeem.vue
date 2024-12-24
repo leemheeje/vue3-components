@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { ref,watch } from 'vue'
-const props = defineProps<{ modelValue: any }>()
+const props = withDefaults(
+  defineProps<{ 
+    modelValue: any; 
+    customStyle?: any; 
+  }>(),
+  {
+    customStyle: { background: '처음기본값' },
+  }
+)
 const localValue = ref('')
 const emits = defineEmits({
   'update:modelValue': null,
@@ -32,6 +40,7 @@ function onInput(event:Event) {
 <template>
   <div>
     <input type="text" :value="localValue" @input="onInput"/>
-    {{ localValue }}
+    {{ localValue }}<br/>
+    {{ JSON.stringify(props.customStyle) }}<br/>
   </div>
 </template>

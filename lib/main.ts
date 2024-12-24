@@ -10,7 +10,10 @@ export default{
             console.log(123);
             return `hello plugins params : ${s}`
         }
-        app.component('TestLeem', TestLeem)
-        app.component('TestLeem2', TestLeem2)
     }
+}
+
+export {
+    TestLeem,
+    TestLeem2
 }

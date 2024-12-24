@@ -17,6 +17,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
+    "publish:minor": "npm run build && npm version minor && npm publish",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -10,6 +10,8 @@ export default{
             console.log(123);
             return `hello plugins params : ${s}`
         }
+        app.component('TestLeem1', TestLeem1);
+        app.component('TestLeem2', TestLeem2);
     }
 }
 

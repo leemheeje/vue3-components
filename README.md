@@ -1,9 +1,21 @@
 # test-leem test build
 
+
+
 ## github action
 ```code
 .github/workflows/npm-package-publish.yml
 ```
+- https://www.npmjs.com/
+- settings
+- Access Tokens
+- Claasic Token
+- Name/Automation -> 토큰발급
+- https://github.com/ 이동
+- 해당 레파시토리 -> settings
+- Secrets and variables -> Actions
+- New repository secret
+- name/Secret영역에 npm에서 발급받은 토큰입력
 
 ## /lib/main.ts 작성
 ```

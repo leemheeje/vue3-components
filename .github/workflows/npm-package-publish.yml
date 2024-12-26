@@ -1,12 +1,23 @@
-name: Workflows Names - run_name_demo1
-run-name: Runs Names - run_name_demo2 🚀
+name: npm-package-publish
 
-on: 
+on:
   push:
+    branches: 
+      - main
+permissions:
+  contents: write
+  issuses: write
+  pull-requests: write
 
 jobs:
-  Jobs-Names-run_name_demo-01:
+  npm-package-publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo Test
-        run: echo "Run Workflows - run_name_demo"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+      - run: npm ci
+      - run: npm run build
+      - env:
+        NPM_TOKEN: ${{secrets.GITHUB_TOKEN}}

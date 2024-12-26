@@ -5,6 +5,12 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'), // 'src'를 '@'로 매핑
+      '@tests': resolve(__dirname, 'tests'), // 'tests'를 '@tests'로 매핑
+    },
+  },
   build: {
     lib: {
       // 여러 진입점은 객체 또는 배열로 지정할 수 있습니다.

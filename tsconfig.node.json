@@ -21,8 +21,9 @@
     "noUncheckedSideEffectImports": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@/components/*": ["./src/components/*"]
+      "@/src/*": ["src/*"],
+      "@/components/*": ["src/components/*"],
+      "@/tests/*": ["tests/*"] // tests 폴더에도 별칭을 적용
     }
   },
   "include": [
@@ -31,10 +32,11 @@
     "src/**/*.d.ts",
     "lib/**/*.ts",
     "lib/**/*.d.ts",
-    "src/**/*.vue"  
+    "src/**/*.vue",
+    "tests/**/*"   // tests 폴더도 포함되도록 추가
   ],
   "exclude": [
     "node_modules",
-    "dist" 
+    "dist" ,
   ]
 }

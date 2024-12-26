@@ -19,7 +19,7 @@ jobs:
           node-version: "lts/*"
           registry-url: "https://registry.npmjs.org"
       - run: npm ci
-      - run: npm version patch --no-git-tag-version
+      #- run: npm version patch --no-git-tag-version
       - run: npm run test
       - run: npm run build
       - run: npm publish

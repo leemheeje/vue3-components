@@ -1,5 +1,10 @@
 # test-leem test build
 
+## github action
+```code
+.github/workflows/npm-package-publish.yml
+```
+
 ## /lib/main.ts 작성
 ```
 export default{

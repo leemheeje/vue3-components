@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import TestLeem1 from '@/components/TestLeem1.vue'
+import BsInputField from '@/components/BsInputField/index.vue'
 const value1 = ref('초기인풋값 가나요?')
-const sdfsdfsdf = ref('두번째애 가나요?')
 </script>
 
 <template>
-  <TestLeem1 v-model="value1"/>
-  <TestLeem2 v-model="sdfsdfsdf"/>
+  <BsInputField v-model="value1" />
 </template>

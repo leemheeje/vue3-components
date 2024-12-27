@@ -16,17 +16,6 @@
       "@/tests/*": ["tests/*"] // tests 폴더에도 별칭을 적용
     }
   },
- "include": [
-    "vite.config.ts",
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "lib/**/*.ts",
-    "lib/**/*.d.ts",
-    "src/**/*.vue",
-    "tests/**/*"   // tests 폴더도 포함되도록 추가
-  ],
-  "exclude": [
-    "node_modules",
-    "dist" ,
-  ]
+  "include": ["vite.config.ts", "src/**/*.ts", "src/**/*.d.ts", "lib/**/*.ts", "lib/**/*.d.ts", "src/**/*.vue", "tests/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

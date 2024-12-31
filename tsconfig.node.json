@@ -21,11 +21,19 @@
     "noUncheckedSideEffectImports": true,
     "baseUrl": ".",
     "paths": {
-      "@/src/*": ["src/*"],
+      "@/*": ["src/*"],
       "@/components/*": ["src/components/*"],
       "@/tests/*": ["tests/*"] // tests 폴더에도 별칭을 적용
     }
   },
-  "include": ["vite.config.ts", "src/**/*.ts", "src/**/*.d.ts", "lib/**/*.ts", "lib/**/*.d.ts", "src/**/*.vue", "tests/**/*"],
+  "include": [
+    "vite.config.ts",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "lib/**/*.ts",
+    "lib/**/*.d.ts",
+    "src/**/*.vue",
+    "tests/**/*"
+  ],
   "exclude": ["node_modules", "dist"]
 }

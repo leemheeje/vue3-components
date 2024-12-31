@@ -23,8 +23,8 @@ const props = withDefaults(defineProps<Props>(), {
   confirmMessage: '',
   customStyle: {background: '처음기본값'}
 })
-const externalSettings = inject('externalSettings', {}) as externalSettings
-const externalCustomStyle = externalSettings.customStyle || {}
+// const externalSettings = inject('externalSettings', {}) as externalSettings
+// const externalCustomStyle = externalSettings.customStyle || {}
 const localValue = ref('')
 const emits = defineEmits({
   'update:modelValue': null,

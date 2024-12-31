@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, watch, inject, reactive} from 'vue'
+import {ref, watch, reactive} from 'vue'
 import {
   Wrapper,
   InputInnerSectionArea,

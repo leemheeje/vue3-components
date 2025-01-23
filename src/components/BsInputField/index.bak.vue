@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, watch} from 'vue'
+import {ref, watch, reactive} from 'vue'
 import {
   Wrapper,
   InputInnerSectionArea,
@@ -13,12 +13,11 @@ import {
 } from '@/components/BsInputField/index.style'
 import type {Props} from '@/components/BsInputField/index.type'
 import StringUtil from '@/utils/StringUtil'
-import DesignConfig from '@/themes/DesignConfig'
+import {ThemeProvider} from '@vue-styled-components/core'
 
 const props = withDefaults(defineProps<Props>(), {
   tag: 'span',
   bgcolor: 'black',
-  placeholder: 'sdf',
   textMessage: 'sdf',
   errorMessage: 'asdf',
   confirmMessage: '',
@@ -35,7 +34,11 @@ const emits = defineEmits({
   input: null,
   focus: null,
   blur: null,
-  keyup: null
+  keyup: null,
+  'update:testModel': null
+})
+const theme = reactive({
+  primaryColor: 'blue'
 })
 
 watch(
@@ -56,33 +59,39 @@ function onInput(event: Event) {
 function onClickReset() {
   emits('update:modelValue', '')
 }
+
+function onSwitchTheme() {
+  //theme.value = theme.value === blueTheme.value ? darkTheme : blueTheme
+  theme.primaryColor = theme.primaryColor === 'blue' ? 'black' : 'blue'
+}
 </script>
 
 <template>
-  <Wrapper
-    :as="props.tag"
-    :class="{
-      'is-readonly': false,
-      'is-disabled': false,
-      'is-complete': false,
-      'is-error': false,
-      'is-focus': false
-    }"
-  >
-    <InputInnerSectionArea>
-      <InputField @input="onInput" type="text" :placeholder="props.placeholder" :value="localValue" />
+  <Wrapper :as="props.tag">
+    <InputInnerSectionArea
+      :class="{
+        'is-disabled': true
+      }"
+    >
+      <InputField type="text" :value="localValue" @input="onInput" />
       <InputSectionRightArea>
         <InputValueResetButton @click="onClickReset" data-testid="input-reset-button" />
-        <slot name="slotInputSectionRightArea" />
       </InputSectionRightArea>
     </InputInnerSectionArea>
-    <InputOuterSectionArea>
-      <template v-if="!StringUtil.isHtmlCode(props.textMessage)">
-        <InputTextMasseage>{{ props.textMessage }}</InputTextMasseage>
-      </template>
-      <template v-else> <InputTextMasseage v-html="props.textMessage" /> </template>
-      <InputErrorMasseage>{{ props.errorMessage }}</InputErrorMasseage>
-      <InputConfirmMasseage>{{ props.confirmMessage }}</InputConfirmMasseage>
-    </InputOuterSectionArea>
+    <button @click="onSwitchTheme">onSwitchTheme</button>
+    {{ theme }}
+    <ThemeProvider :theme="theme">
+      <InputOuterSectionArea>
+        <template v-if="!StringUtil.isHtmlCode(props.textMessage)">
+          <InputTextMasseage>{{ props.textMessage }}</InputTextMasseage>
+        </template>
+        <template v-else>
+          <InputTextMasseage v-html="props.textMessage" />
+        </template>
+
+        <InputErrorMasseage>{{ props.errorMessage }}</InputErrorMasseage>
+        <InputConfirmMasseage>{{ props.confirmMessage }}</InputConfirmMasseage>
+      </InputOuterSectionArea>
+    </ThemeProvider>
   </Wrapper>
 </template>

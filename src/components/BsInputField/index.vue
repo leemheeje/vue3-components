@@ -13,7 +13,7 @@ import {
 } from '@/components/BsInputField/index.style'
 import type {Props} from '@/components/BsInputField/index.type'
 import StringUtil from '@/utils/StringUtil'
-import DesignConfig from '@/themes/DesignConfig'
+// import DesignConfig from '@/themes/DesignConfig'
 
 const props = withDefaults(defineProps<Props>(), {
   tag: 'span',
@@ -70,9 +70,9 @@ function onClickReset() {
     }"
   >
     <InputInnerSectionArea>
-      <InputField @input="onInput" type="text" :placeholder="props.placeholder" :value="localValue" />
+      <InputField type="text" :placeholder="props.placeholder" :value="localValue" @input="onInput" />
       <InputSectionRightArea>
-        <InputValueResetButton @click="onClickReset" data-testid="input-reset-button" />
+        <InputValueResetButton data-testid="input-reset-button" @click="onClickReset" />
         <slot name="slotInputSectionRightArea" />
       </InputSectionRightArea>
     </InputInnerSectionArea>
@@ -80,7 +80,9 @@ function onClickReset() {
       <template v-if="!StringUtil.isHtmlCode(props.textMessage)">
         <InputTextMasseage>{{ props.textMessage }}</InputTextMasseage>
       </template>
-      <template v-else> <InputTextMasseage v-html="props.textMessage" /> </template>
+      <template v-else>
+        <InputTextMasseage v-html="props.textMessage" />
+      </template>
       <InputErrorMasseage>{{ props.errorMessage }}</InputErrorMasseage>
       <InputConfirmMasseage>{{ props.confirmMessage }}</InputConfirmMasseage>
     </InputOuterSectionArea>

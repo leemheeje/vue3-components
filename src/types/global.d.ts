@@ -1,10 +1,4 @@
-import { ComponentCustomProperties } from 'vue'
-
-declare module '*.vue' {
-  import { DefineComponent } from 'vue'
-  const component: DefineComponent<{}, {}, any>
-  export default component
-}
+import {ComponentCustomProperties} from 'vue'
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
@@ -12,7 +6,7 @@ declare module '@vue/runtime-core' {
   }
 }
 declare module 'vue-styled-components' {
-  import { DefineComponent } from 'vue'
+  import {DefineComponent} from 'vue'
   export function styled(tag: string): any
   export function styled(tag: DefineComponent): any
   export default styled

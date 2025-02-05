@@ -21,7 +21,7 @@ const value1 = ref('초기인풋값 가나요?')
   <GlobalStyle />
   <BsInputField ref="refLoginInput" v-model="value1">
     <template #slotInputSectionLeftArea>
-      <BsIcon :type="`icon_search_line`" />
+      <BsIcon :type="'icon_arrow_before_line'" />
     </template>
     <template #slotInputSectionRightArea> asdf </template>
     <template #slotSupportMessage> 서포트메시지12 </template>

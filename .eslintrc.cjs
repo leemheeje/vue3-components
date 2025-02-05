@@ -40,6 +40,7 @@ module.exports = {
     'vue/require-prop-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-empty-object-type': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     'vue/no-v-text-v-html-on-component': 'off', //v-html 허용
     'vue/multi-word-component-names': 'off' //일단 끔 해당프로젝트는 index로만 불러옴

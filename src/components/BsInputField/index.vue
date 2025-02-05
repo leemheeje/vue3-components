@@ -17,6 +17,7 @@ import type {Props} from '@/components/BsInputField/index.type'
 
 const props = withDefaults(defineProps<Props>(), {
   tag: 'span',
+  theme: 'theme-1',
   name: '',
   isFocus: false,
   isReadonly: false,
@@ -71,6 +72,7 @@ function onBlur(e: FocusEvent) {
 function onKeyup(e: KeyboardEvent) {
   emits('keyup', e)
 }
+function setValue() {}
 
 defineExpose({
   setFocus
@@ -78,7 +80,7 @@ defineExpose({
 </script>
 
 <template>
-  <Wrapper :as="props.tag">
+  <Wrapper :as="props.tag" :data-theme="props.theme">
     <InputInnerSectionArea
       :class="{
         'is-readonly': props.isReadonly,

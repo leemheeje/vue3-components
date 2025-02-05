@@ -1,6 +1,7 @@
 export interface Props {
   tag?: string
   name?: string
+  theme?: 'theme-1' | 'theme-2'
   isFocus?: boolean
   isReadonly?: boolean
   isDiabled?: boolean

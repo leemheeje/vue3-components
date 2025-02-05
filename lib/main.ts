@@ -1,4 +1,5 @@
-import TestLeem1 from '../src/components/BsInputField/index.vue'
+import BsInputField from '../src/components/BsInputField/index.vue'
+import BsIcon from '../src/components/BsIcon/index.vue'
 
 export default {
   install: (app: any, settings?: any) => {
@@ -9,8 +10,9 @@ export default {
     //     console.log(123);
     //     return `hello plugins params : ${s}`
     // }
-    app.component('TestLeem1', TestLeem1)
-  },
+    app.component('BsInputField', BsInputField)
+    app.component('BsIcon', BsIcon)
+  }
 }
 
-export { TestLeem1 }
+export {BsInputField, BsIcon}

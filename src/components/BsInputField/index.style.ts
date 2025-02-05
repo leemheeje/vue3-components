@@ -15,6 +15,8 @@ const IS_DISABLED = 'is-disabled'
 const IS_CONFIRM = 'is-confirm'
 const IS_ERROR = 'is-error'
 const IS_FOCUS = 'is-focus'
+const THEME_1 = 'theme-1'
+const THEME_2 = 'theme-2'
 
 export const Wrapper = styled.span``
 export const InputInnerSectionArea = styled('div', {
@@ -44,10 +46,18 @@ export const InputInnerSectionArea = styled('div', {
     } else if (_is(IS_CONFIRM)) {
       style['border-color'] = DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Primary/Primary_01']]
     }
+
     return css`
       ${_toCSSParse(style)}
     `
   }}
+  [data-theme="${THEME_2}"] & {
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-radius: 0px;
+    padding: 0;
+  }
 `
 export const InputField = styled.input`
   margin: 0;

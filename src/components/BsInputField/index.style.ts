@@ -15,7 +15,6 @@ const IS_DISABLED = 'is-disabled'
 const IS_CONFIRM = 'is-confirm'
 const IS_ERROR = 'is-error'
 const IS_FOCUS = 'is-focus'
-const THEME_1 = 'theme-1'
 const THEME_2 = 'theme-2'
 
 export const Wrapper = styled.span``

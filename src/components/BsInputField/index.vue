@@ -72,7 +72,6 @@ function onBlur(e: FocusEvent) {
 function onKeyup(e: KeyboardEvent) {
   emits('keyup', e)
 }
-function setValue() {}
 
 defineExpose({
   setFocus

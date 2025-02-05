@@ -1,7 +1,7 @@
 {
   "name": "test-leem-vue3-components",
   "private": false,
-  "version": "1.10.5",
+  "version": "1.11.0",
   "type": "module",
   "files": [
     "dist"
@@ -28,6 +28,7 @@
     "vue": "^3.5.13"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.14",
     "@types/node": "^22.10.2",
     "@typescript-eslint/eslint-plugin": "^8.18.2",
     "@typescript-eslint/parser": "^8.18.2",
@@ -35,10 +36,14 @@
     "@vue-styled-components/core": "^1.9.0",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.7.0",
-    "eslint": "^9.17.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-vue": "^9.32.0",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-vue": "^9.17.0",
     "jsdom": "^25.0.1",
     "posthtml": "^0.16.6",
     "posthtml-remove-attributes": "^1.0.0",

@@ -2,8 +2,6 @@
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -11,19 +9,10 @@
     "noUncheckedSideEffectImports": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@/components/*": ["src/components/*"],
-      "@/tests/*": ["tests/*"] // tests 폴더에도 별칭을 적용
-    }
+      "@/*": ["src/*"]
+    },
+    "allowJs": true
   },
-  "include": [
-    "vite.config.ts",
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "lib/**/*.ts",
-    "lib/**/*.d.ts",
-    "src/**/*.vue",
-    "tests/**/*"
-  ],
+  "include": ["vite.config.ts", "src/**/*.ts", "src/**/*.d.ts", "lib/**/*.ts", "lib/**/*.d.ts", "src/**/*.vue"],
   "exclude": ["node_modules", "dist"]
 }

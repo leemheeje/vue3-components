@@ -1,5 +1,5 @@
 import {styled} from '@vue-styled-components/core'
-import {_toCSSUnit, _toGetBackgroundSVG} from '@/themes/DesignConfig'
+import {_toCSSUnit} from '@/themes/DesignConfig'
 
 export const Wrapper = styled('span', {
   type: String,

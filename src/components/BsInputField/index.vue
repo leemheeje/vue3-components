@@ -13,12 +13,16 @@ import {
   InputErrorMasseage,
   InputConfirmMasseage
 } from '@/components/BsInputField/index.style'
+import {CONST_INPUTFILTER_FILTER_NAME} from '@/constants/BsInputField/index'
 import type {Props} from '@/components/BsInputField/index.type'
 
 const props = withDefaults(defineProps<Props>(), {
   tag: 'span',
   theme: 'theme-1',
+  id: '',
   name: '',
+  type: 'text',
+  useFilter: '',
   isFocus: false,
   isReadonly: false,
   isDiabled: false,
@@ -39,14 +43,14 @@ const emits = defineEmits(['update:modelValue', 'click:delete', 'input', 'focus'
 watch(
   () => props.modelValue,
   (v) => {
-    localValue.value = v
+    localValue.value = setValue(v)
   },
   {immediate: true}
 )
 
 function onInput(e: Event) {
   const inputElement = e.target as HTMLInputElement
-  const _setValue = inputElement.value
+  const _setValue = setValue(inputElement.value)
   inputElement.value = _setValue
   emits('input', e)
   emits('update:modelValue', _setValue)
@@ -73,6 +77,14 @@ function onKeyup(e: KeyboardEvent) {
   emits('keyup', e)
 }
 
+function setValue(v: string) {
+  console.log(v)
+  console.log(props.useFilter)
+  console.log(CONST_INPUTFILTER_FILTER_NAME)
+
+  return v
+}
+
 defineExpose({
   setFocus
 })
@@ -93,8 +105,9 @@ defineExpose({
         <slot name="slotInputSectionLeftArea" />
       </InputSectionLeftArea>
       <InputField
+        :id="props.id"
         ref="localRef"
-        type="text"
+        :type="props.type"
         :placeholder="props.placeholder"
         :value="localValue"
         :name="props.name"

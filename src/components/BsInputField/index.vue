@@ -89,7 +89,7 @@ defineExpose({
         'is-focus': localIsFocus
       }"
     >
-      <InputSectionLeftArea>
+      <InputSectionLeftArea v-if="$slots.slotInputSectionLeftArea">
         <slot name="slotInputSectionLeftArea" />
       </InputSectionLeftArea>
       <InputField

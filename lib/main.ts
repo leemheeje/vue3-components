@@ -5,6 +5,9 @@ export default {
   install: (app: any, settings?: any) => {
     const externalSettings = settings || {}
     app.provide('externalSettings', externalSettings)
+
+    const htmlElement = document.documentElement
+    htmlElement.style.setProperty('--ui-basic-component-fontsize', '16px')
     // app.config.globalProperties.$testleem = (s:any)=>{
     //     console.log(s);
     //     console.log(123);

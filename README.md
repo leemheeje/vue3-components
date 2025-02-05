@@ -118,3 +118,58 @@ npm publish
 ```
 
 
+
+
+## 프로젝트 import
+```vue3 기준 main.js
+import { createApp } from 'vue'
+import App from './App.vue'
+import UiComponents from 'test-leem-vue3-components'
+
+createApp(App).use(UiComponents).mount('#app')
+```
+
+``` App.vue
+<template>
+  <img alt="Vue logo" src="./assets/logo.png">
+  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <BsInputField ref="refLoginInput" v-model="testModel" :isError="true">
+    <template #slotInputSectionLeftArea>
+      <BsIcon :type="'icon_arrow_before_line'" />
+    </template>
+    <template #slotInputSectionRightArea> asdf </template>
+    <template #slotSupportMessage> 서포트메시지12 </template>
+  </BsInputField>
+</template>
+
+<script>
+import HelloWorld from './components/HelloWorld.vue'
+import {BsIcon, BsInputField} from 'test-leem-vue3-components'
+
+export default {
+  name: 'App',
+  components: {
+    HelloWorld,
+    BsInputField,
+    BsIcon
+  },
+  data(){
+    return {
+      testModel: 123
+    }
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
+
+```

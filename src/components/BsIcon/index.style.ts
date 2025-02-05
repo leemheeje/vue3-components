@@ -1,12 +1,7 @@
 import {styled} from '@vue-styled-components/core'
 import {_toCSSUnit, _toGetBackgroundSVG} from '@/themes/DesignConfig'
 
-export const Wrapper = styled('span', {
-  type: String,
-  color: String,
-  width: String,
-  height: String
-})`
+export const Wrapper = styled.span`
   min-width: ${(props: Record<string, any>) => _toCSSUnit(props.width)};
   min-height: ${(props: Record<string, any>) => _toCSSUnit(props.height)};
   width: ${(props: Record<string, any>) => _toCSSUnit(props.width)};

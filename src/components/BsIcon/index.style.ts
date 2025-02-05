@@ -12,4 +12,4 @@ export const Wrapper = styled.span`
   mask-size: cover;
   background-image: none;
   background-color: ${(props: Record<string, any>) => props.color};
-`
+` as any

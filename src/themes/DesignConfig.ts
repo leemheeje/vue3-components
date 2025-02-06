@@ -142,6 +142,10 @@ export default class DesignConfig {
     [DESIGNCONFIG_KEYNAME_COLOR['Gray/Lightgray_05']]: '#FAFAFA',
     [DESIGNCONFIG_KEYNAME_COLOR['Gray/White']]: '#FFFFFF',
     [DESIGNCONFIG_KEYNAME_COLOR['Primary/Primary_01']]: '#2196F3',
+    [DESIGNCONFIG_KEYNAME_COLOR['Primary/Primary_02']]: '#2196F3',
+    [DESIGNCONFIG_KEYNAME_COLOR['Primary/Primary_03']]: '#2196F3',
+    [DESIGNCONFIG_KEYNAME_COLOR['Primary/Primary_04']]: '#2196F3',
+    [DESIGNCONFIG_KEYNAME_COLOR['Primary/Primary_05']]: '#E5F4FF',
     [DESIGNCONFIG_KEYNAME_COLOR['Warning/Point_Red']]: '#FA2828'
   }
 }

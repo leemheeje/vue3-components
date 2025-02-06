@@ -45,7 +45,8 @@ module.exports = {
       'error',
       {
         vars: 'all',
-        args: 'all'
+        args: 'all',
+        argsIgnorePattern: '__'
       }
     ],
     'vue/no-v-text-v-html-on-component': 'off', //v-html 허용

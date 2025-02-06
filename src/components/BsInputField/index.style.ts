@@ -10,8 +10,8 @@ import {
   _toCSSUnit
 } from '@/themes/DesignConfig'
 
-const IS_READONLY = 'is-readonly'
-const IS_DISABLED = 'is-disabled'
+const IS_READONLY = 'readonly'
+const IS_DISABLED = 'disabled'
 const IS_CONFIRM = 'is-confirm'
 const IS_ERROR = 'is-error'
 const IS_FOCUS = 'is-focus'

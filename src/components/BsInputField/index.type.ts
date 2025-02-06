@@ -4,10 +4,9 @@ export interface Props {
   id?: string
   type?: string
   theme?: 'theme-1' | 'theme-2'
-  useFilter?: string
-  isFocus?: boolean
-  isReadonly?: boolean
-  isDiabled?: boolean
+  inputFilter?: string
+  readonly?: boolean
+  diabled?: boolean
   isError?: boolean
   isConfirm?: boolean
   placeholder?: string

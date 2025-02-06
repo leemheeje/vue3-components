@@ -30,6 +30,10 @@ const DESIGNCONFIG_KEYNAME_COLOR = Object.freeze({
   'Gray/Lightgray_05': 'Gray/Lightgray_05',
   'Gray/White': 'Gray/White',
   'Primary/Primary_01': 'Primary/Primary_01',
+  'Primary/Primary_02': 'Primary/Primary_02',
+  'Primary/Primary_03': 'Primary/Primary_03',
+  'Primary/Primary_04': 'Primary/Primary_04',
+  'Primary/Primary_05': 'Primary/Primary_05',
   'Warning/Point_Red': 'Warning/Point_Red'
 })
 

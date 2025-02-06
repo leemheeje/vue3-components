@@ -13,7 +13,9 @@ import {
   InputErrorMasseage,
   InputConfirmMasseage
 } from '@/components/BsInputField/index.style'
-import {CONST_INPUTFILTER_FILTER_NAME} from '@/constants/BsInputField/index'
+import {INPUT_VALIDATE} from '@/constants/components/BsInputField/index'
+import regExp from '@/constants/RegExp'
+import StringUtil from '@/utils/StringUtil'
 import type {Props} from '@/components/BsInputField/index.type'
 
 const props = withDefaults(defineProps<Props>(), {
@@ -22,10 +24,9 @@ const props = withDefaults(defineProps<Props>(), {
   id: '',
   name: '',
   type: 'text',
-  useFilter: '',
-  isFocus: false,
-  isReadonly: false,
-  isDiabled: false,
+  inputFilter: INPUT_VALIDATE.ALL,
+  readonly: false,
+  diabled: false,
   isError: false,
   isConfirm: false,
   placeholder: 'sdf',
@@ -77,12 +78,30 @@ function onKeyup(e: KeyboardEvent) {
   emits('keyup', e)
 }
 
-function setValue(v: string) {
-  console.log(v)
-  console.log(props.useFilter)
-  console.log(CONST_INPUTFILTER_FILTER_NAME)
-
-  return v
+function setValue(v: any) {
+  let _v = v
+  switch (props.inputFilter) {
+    case INPUT_VALIDATE.KO:
+      _v = v.replace(new RegExp(regExp.korReplace), '')
+      break
+    case INPUT_VALIDATE.EN:
+      _v = v.replace(new RegExp(regExp.enReplace), '')
+      break
+    case INPUT_VALIDATE.NUMBER:
+      _v = v.replace(new RegExp(regExp.numInputReplace), '')
+      break
+    case INPUT_VALIDATE.KO_SPECIAL:
+      _v = v.replace(new RegExp(regExp.korSpecialReplace), '')
+      break
+    case INPUT_VALIDATE.EN_SPECIAL:
+      _v = v.replace(new RegExp(regExp.enSpecialReplace), '')
+      break
+    case INPUT_VALIDATE.PRICE_COMMA:
+      _v = StringUtil.setPriceComma(v.replace(/[^0-9]/g, ''))
+      _v = _v === '0' ? '' : _v
+      break
+  }
+  return _v
 }
 
 defineExpose({
@@ -94,8 +113,8 @@ defineExpose({
   <Wrapper :as="props.tag" :data-theme="props.theme">
     <InputInnerSectionArea
       :class="{
-        'is-readonly': props.isReadonly,
-        'is-disabled': props.isDiabled,
+        'is-readonly': props.readonly,
+        'is-disabled': props.diabled,
         'is-confirm': props.isConfirm,
         'is-error': props.isError,
         'is-focus': localIsFocus
@@ -111,8 +130,8 @@ defineExpose({
         :placeholder="props.placeholder"
         :value="localValue"
         :name="props.name"
-        :readonly="props.isReadonly"
-        :disabled="props.isDiabled"
+        :readonly="props.readonly"
+        :disabled="props.diabled"
         @input="onInput"
         @focus="onFocus"
         @blur="onBlur"

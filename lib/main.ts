@@ -1,5 +1,7 @@
 import BsInputField from '../src/components/BsInputField/index.vue'
 import BsIcon from '../src/components/BsIcon/index.vue'
+import BsCheckbox from '../src/components/BsCheckbox/index.vue'
+import BsCheckboxGroup from '../src/components/BsCheckboxGroup/index.vue'
 
 export default {
   install: (app: any, settings?: any) => {
@@ -15,7 +17,9 @@ export default {
     // }
     app.component('BsInputField', BsInputField)
     app.component('BsIcon', BsIcon)
+    app.component('BsCheckbox', BsIcon)
+    app.component('BsCheckboxGroup', BsIcon)
   }
 }
 
-export {BsInputField, BsIcon}
+export {BsInputField, BsIcon, BsCheckbox, BsCheckboxGroup}

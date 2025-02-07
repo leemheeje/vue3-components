@@ -18,9 +18,7 @@ const IS_FOCUS = 'is-focus'
 const THEME_2 = 'theme-2'
 
 export const Wrapper = styled.span``
-export const InputInnerSectionArea = styled('div', {
-  class: String
-})`
+export const InputInnerSectionAreaCSS = css`
   display: flex;
   align-items: center;
   gap: ${_toCSSUnit('10px')};
@@ -58,7 +56,12 @@ export const InputInnerSectionArea = styled('div', {
     padding: 0;
   }
 `
-const inputCSS = css`
+export const InputInnerSectionArea = styled('div', {
+  class: String
+})`
+  ${InputInnerSectionAreaCSS}
+`
+export const inputCSS = css`
   margin: 0;
   padding: 0;
   appearance: none;
@@ -82,9 +85,6 @@ export const InputSelect = styled.select`
   ${inputCSS}
   padding-left: ${_toCSSUnit('16px')};
   margin-left: ${_toCSSUnit('-16px')};
-`
-export const InputTextarea = styled.textarea`
-  ${inputCSS}
 `
 
 export const InputSectionLeftArea = styled.div`

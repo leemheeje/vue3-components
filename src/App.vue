@@ -7,6 +7,7 @@ import BsCheckboxGroup from '@/components/BsCheckboxGroup/index.vue'
 import BsRadio from '@/components/BsRadio/index.vue'
 import BsRadioGroup from '@/components/BsRadioGroup/index.vue'
 import BsSelect from '@/components/BsSelect/index.vue'
+import BsTextarea from '@/components/BsTextarea/index.vue'
 import {createGlobalStyle} from '@vue-styled-components/core'
 
 const refLoginInput = ref()
@@ -28,6 +29,7 @@ const checkboxItemsModel = ref([
   {codeId: 3, codeName: '3'}
 ])
 const wxAwss = ref('aa1')
+const textareamodel = ref('aa1')
 
 onMounted(() => {
   refLoginInput.value.setFocus()
@@ -43,6 +45,7 @@ const value1 = ref('한국어만asdf123!@#!   sdf 출력asdf')
 <template>
   <GlobalStyle />
   <br />
+  <BsTextarea v-model="textareamodel" />{{ textareamodel }}<br />
   <BsRadioGroup v-model="radioItemsModel" :items="radioItems" theme="theme-2" />{{ radioItemsModel }}
   <BsRadioGroup v-model="radioItemsModel" :items="radioItems" theme="theme-1" />{{ radioItemsModel }}
   <br />
@@ -69,7 +72,7 @@ const value1 = ref('한국어만asdf123!@#!   sdf 출력asdf')
   <br />
   <br />
   <br />
-  <BsCheckbox v-model="checkboxModel">테마1</BsCheckbox><br />
+  <BsCheckbox v-model="checkboxModel">테마1</BsCheckbox><br />{{ checkboxModel }}
   <BsCheckbox v-model="checkboxModel" theme="theme-2">테마2</BsCheckbox><br />
   <BsCheckbox v-model="checkboxModel" theme="theme-3">테마3</BsCheckbox><br />
   <BsCheckbox v-model="checkboxModel" theme="theme-4">테마4</BsCheckbox><br />

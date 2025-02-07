@@ -2,6 +2,7 @@ import BsInputField from '../src/components/BsInputField/index.vue'
 import BsIcon from '../src/components/BsIcon/index.vue'
 import BsCheckbox from '../src/components/BsCheckbox/index.vue'
 import BsCheckboxGroup from '../src/components/BsCheckboxGroup/index.vue'
+import BsSelect from '../src/components/BsSelect/index.vue'
 
 export default {
   install: (app: any, settings?: any) => {
@@ -15,11 +16,11 @@ export default {
     //     console.log(123);
     //     return `hello plugins params : ${s}`
     // }
-    app.component('BsInputField', BsInputField)
-    app.component('BsIcon', BsIcon)
-    app.component('BsCheckbox', BsIcon)
-    app.component('BsCheckboxGroup', BsIcon)
+    // app.component('BsInputField', BsInputField)
+    // app.component('BsIcon', BsIcon)
+    // app.component('BsCheckbox', BsIcon)
+    // app.component('BsCheckboxGroup', BsIcon)
   }
 }
 
-export {BsInputField, BsIcon, BsCheckbox, BsCheckboxGroup}
+export {BsInputField, BsIcon, BsCheckbox, BsCheckboxGroup, BsSelect}

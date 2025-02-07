@@ -10,8 +10,8 @@ import {
   _toCSSUnit
 } from '@/themes/DesignConfig'
 
-const IS_READONLY = 'readonly'
-const IS_DISABLED = 'disabled'
+const IS_READONLY = 'is-readonly'
+const IS_DISABLED = 'is-disabled'
 const IS_CONFIRM = 'is-confirm'
 const IS_ERROR = 'is-error'
 const IS_FOCUS = 'is-focus'
@@ -58,7 +58,7 @@ export const InputInnerSectionArea = styled('div', {
     padding: 0;
   }
 `
-export const InputField = styled.input`
+const inputCSS = css`
   margin: 0;
   padding: 0;
   appearance: none;
@@ -74,6 +74,17 @@ export const InputField = styled.input`
   &:focus {
     outline: none;
   }
+`
+export const InputField = styled.input`
+  ${inputCSS}
+`
+export const InputSelect = styled.select`
+  ${inputCSS}
+  padding-left: ${_toCSSUnit('16px')};
+  margin-left: ${_toCSSUnit('-16px')};
+`
+export const InputTextarea = styled.textarea`
+  ${inputCSS}
 `
 
 export const InputSectionLeftArea = styled.div`

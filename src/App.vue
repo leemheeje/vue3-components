@@ -4,9 +4,11 @@ import BsInputField from '@/components/BsInputField/index.vue'
 import BsIcon from '@/components/BsIcon/index.vue'
 import BsCheckbox from '@/components/BsCheckbox/index.vue'
 import BsCheckboxGroup from '@/components/BsCheckboxGroup/index.vue'
+import BsSelect from '@/components/BsSelect/index.vue'
 import {createGlobalStyle} from '@vue-styled-components/core'
 
 const refLoginInput = ref()
+const selectmodel = ref('3')
 const checkboxModel = ref(true)
 const checkboxItems = ref([
   {codeId: 1, codeName: '1'},
@@ -31,6 +33,12 @@ const value1 = ref('한국어만asdf123!@#!   sdf 출력asdf')
 
 <template>
   <GlobalStyle />
+  {{ selectmodel }}
+  <BsSelect v-model="selectmodel">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </BsSelect>
   <BsCheckboxGroup v-model="checkboxItemsModel" :items="checkboxItems" />
   {{ checkboxItemsModel }}
   <br />

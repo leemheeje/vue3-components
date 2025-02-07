@@ -12,7 +12,7 @@ export const DESIGNCONFIG_KEYNAME_COLOR = KeyNamegroup.DESIGNCONFIG_KEYNAME_COLO
 export const DESIGNCONFIG_ICON_MAP = iconMapGroup
 
 export const _toCSSUnit = (s: string) =>
-  _.replace(s, /(\d+(\.\d+)?)px/g, (__, v) => {
+  _.replace(s, /(-?\d+(\.\d+)?)px/g, (__, v) => {
     if (v === '1') {
       // return `1px`
       return `calc(var(--ui-basic-component-fontsize) / 16 * ${v})`

@@ -26,7 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
   type: 'text',
   inputFilter: INPUT_VALIDATE.ALL,
   readonly: false,
-  diabled: false,
+  disabled: false,
   isError: false,
   isConfirm: false,
   placeholder: 'sdf',
@@ -114,7 +114,7 @@ defineExpose({
     <InputInnerSectionArea
       :class="{
         'is-readonly': props.readonly,
-        'is-disabled': props.diabled,
+        'is-disabled': props.disabled,
         'is-confirm': props.isConfirm,
         'is-error': props.isError,
         'is-focus': localIsFocus
@@ -131,7 +131,7 @@ defineExpose({
         :value="localValue"
         :name="props.name"
         :readonly="props.readonly"
-        :disabled="props.diabled"
+        :disabled="props.disabled"
         @input="onInput"
         @focus="onFocus"
         @blur="onBlur"

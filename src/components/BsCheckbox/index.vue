@@ -62,7 +62,6 @@ function onChange(e: Event) {
       :disabled="props.disabled"
       @change="onChange"
     />
-    asdf
     <InputLabel :for="localId">
       <InputCheckUI
         v-if="

@@ -4,21 +4,30 @@ import BsInputField from '@/components/BsInputField/index.vue'
 import BsIcon from '@/components/BsIcon/index.vue'
 import BsCheckbox from '@/components/BsCheckbox/index.vue'
 import BsCheckboxGroup from '@/components/BsCheckboxGroup/index.vue'
+import BsRadio from '@/components/BsRadio/index.vue'
+import BsRadioGroup from '@/components/BsRadioGroup/index.vue'
 import BsSelect from '@/components/BsSelect/index.vue'
 import {createGlobalStyle} from '@vue-styled-components/core'
 
 const refLoginInput = ref()
 const selectmodel = ref('3')
 const checkboxModel = ref(true)
+const radioItems = ref([
+  {codeId: 1, codeName: '1'},
+  {codeId: 2, codeName: '2'},
+  {codeId: 3, codeName: '3'}
+])
 const checkboxItems = ref([
   {codeId: 1, codeName: '1'},
   {codeId: 2, codeName: '2'},
   {codeId: 3, codeName: '3'}
 ])
+const radioItemsModel = ref({codeId: 3, codeName: '3'})
 const checkboxItemsModel = ref([
   {codeId: 1, codeName: '1'},
   {codeId: 3, codeName: '3'}
 ])
+const wxAwss = ref('aa1')
 
 onMounted(() => {
   refLoginInput.value.setFocus()
@@ -33,12 +42,28 @@ const value1 = ref('한국어만asdf123!@#!   sdf 출력asdf')
 
 <template>
   <GlobalStyle />
+  <br />
+  <BsRadioGroup v-model="radioItemsModel" :items="radioItems" theme="theme-2" />{{ radioItemsModel }}
+  <BsRadioGroup v-model="radioItemsModel" :items="radioItems" theme="theme-1" />{{ radioItemsModel }}
+  <br />
+  <BsRadio v-model="wxAwss" name="a1" value="aa1">1</BsRadio>
+  <BsRadio v-model="wxAwss" name="a1" value="aa2">2</BsRadio>{{ wxAwss }}
+  <br />
   {{ selectmodel }}
   <BsSelect v-model="selectmodel">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
   </BsSelect>
+  <BsCheckboxGroup v-model="checkboxItemsModel" :items="checkboxItems" />
+  <BsCheckboxGroup v-model="checkboxItemsModel" :items="checkboxItems" theme="theme-1" />
+  <br />
+  <BsCheckboxGroup v-model="checkboxItemsModel" :items="checkboxItems" use-theme6-check-icon theme="theme-2">
+    <template #default="{item}">{{ item.codeName }}</template>
+  </BsCheckboxGroup>
+  <BsCheckboxGroup v-model="checkboxItemsModel" :items="checkboxItems" theme="theme-2">
+    <template #default="{item}">{{ item.codeName }}</template>
+  </BsCheckboxGroup>
   <BsCheckboxGroup v-model="checkboxItemsModel" :items="checkboxItems" />
   {{ checkboxItemsModel }}
   <br />
@@ -60,3 +85,9 @@ const value1 = ref('한국어만asdf123!@#!   sdf 출력asdf')
     <template #slotSupportMessage> 서포트메시지12 </template>
   </BsInputField>
 </template>
+
+<style>
+* {
+  vertical-align: top;
+}
+</style>

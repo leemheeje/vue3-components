@@ -158,9 +158,7 @@ export const InputCheckUI = styled.span`
   }
 `
 
-export const InputCheckbox = styled.input.attrs(() => ({
-  type: 'checkbox'
-}))`
+export const inputCSS = styled.input`
   width: 0px;
   height: 0px;
   position: absolute;
@@ -223,4 +221,14 @@ export const InputCheckbox = styled.input.attrs(() => ({
       }
     }
   }
+`
+export const InputCheckbox = styled.input.attrs(() => ({
+  type: 'checkbox'
+}))`
+  ${inputCSS}
+`
+export const InputRadio = styled.input.attrs(() => ({
+  type: 'radio'
+}))`
+  ${inputCSS}
 `

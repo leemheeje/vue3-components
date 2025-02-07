@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {nextTick, onMounted, ref, watch} from 'vue'
 import StringUtil from '@/utils/StringUtil'
-import {Wrapper, inputCSS, InputLabel, InputLabelText, InputCheckUI} from '@/components/BsCheckbox/index.style'
-import type {Props} from '@/components/BsCheckbox/index.type'
+import {Wrapper, inputCSS, InputLabel, InputLabelText, InputCheckUI} from '@/components/BsRadio/index.style'
+import type {Props} from '@/components/BsRadio/index.type'
 import {THEME_KEYNAME} from '@/constants/components/BsCheckbox/index'
 
 const props = withDefaults(defineProps<Props>(), {
@@ -10,24 +10,23 @@ const props = withDefaults(defineProps<Props>(), {
   name: '',
   checked: false,
   disabled: false,
-  modelValue: false,
+  value: '',
+  modelValue: '',
   useTheme6CheckIcon: false,
-  theme: THEME_KEYNAME.THEME_1
+  theme: THEME_KEYNAME.THEME_4 // THEME_KEYNAME.THEME_5
 })
 
 const localId = ref(props.id)
 const localName = ref(props.name)
-const localValue = ref<boolean>(false)
+const localValue = ref<boolean | string>(false)
 const localChecked = ref(localValue.value)
 const emits = defineEmits(['update:modelValue', 'change'])
 
 watch(
-  () => props.modelValue,
+  () => props.name,
   (v) => {
-    localValue.value = v
-    localChecked.value = v
-  },
-  {immediate: true}
+    localName.value = v
+  }
 )
 
 onMounted(() => {
@@ -40,9 +39,8 @@ onMounted(() => {
 
 function onChange(e: Event) {
   const $input = e.target as HTMLInputElement
-  const isChecked = $input.checked
   emits('change', e)
-  emits('update:modelValue', isChecked)
+  emits('update:modelValue', $input.value)
 }
 </script>
 
@@ -57,9 +55,10 @@ function onChange(e: Event) {
   >
     <inputCSS
       :id="localId"
-      type="checkbox"
+      type="radio"
+      :value="props.value"
       :name="localName"
-      :checked="props.checked || localValue"
+      :checked="props.checked || StringUtil.isEqual(props.modelValue, props.value)"
       :disabled="props.disabled"
       @change="onChange"
     />
@@ -73,7 +72,9 @@ function onChange(e: Event) {
           props.theme === THEME_KEYNAME.THEME_5
         "
       />
-      <InputLabelText v-if="$slots.default"><slot /></InputLabelText>
+      <InputLabelText v-if="$slots.default">
+        <slot />
+      </InputLabelText>
     </InputLabel>
   </Wrapper>
 </template>

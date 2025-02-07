@@ -5,6 +5,7 @@ import BsCheckboxGroup from '../src/components/BsCheckboxGroup/index.vue'
 import BsRadio from '../src/components/BsRadio/index.vue'
 import BsRadioGroup from '../src/components/BsRadioGroup/index.vue'
 import BsSelect from '../src/components/BsSelect/index.vue'
+import BsTextarea from '../src/components/BsTextarea/index.vue'
 
 export default {
   install: (app: any, settings?: any) => {
@@ -25,4 +26,4 @@ export default {
   }
 }
 
-export {BsInputField, BsIcon, BsCheckbox, BsCheckboxGroup, BsSelect, BsRadio, BsRadioGroup}
+export {BsInputField, BsIcon, BsCheckbox, BsCheckboxGroup, BsSelect, BsRadio, BsRadioGroup, BsTextarea}

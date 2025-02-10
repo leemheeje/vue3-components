@@ -1,5 +1,5 @@
 import {styled} from '@vue-styled-components/core'
-import {_toCSSUnit} from '@/themes/DesignConfig'
+import {DesignConfigColor, DESIGNCONFIG_KEYNAME_COLOR, _toCSSUnit} from '@/themes/DesignConfig'
 
 export const Wrapper = styled('span', {
   type: String,
@@ -16,5 +16,10 @@ export const Wrapper = styled('span', {
   mask-image: ${(props: Record<string, any>) => props.type};
   mask-size: cover;
   background-image: none;
-  background-color: ${(props: Record<string, any>) => props.color};
+  background-color: ${(props: Record<string, any>) => {
+    const _DesignConfigColor: Record<string, string> = DesignConfigColor
+    const _DESIGNCONFIG_KEYNAME_COLOR: string =
+      DESIGNCONFIG_KEYNAME_COLOR[props.color as keyof typeof DESIGNCONFIG_KEYNAME_COLOR]
+    return _DesignConfigColor[_DESIGNCONFIG_KEYNAME_COLOR]
+  }};
 `

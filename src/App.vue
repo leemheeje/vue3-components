@@ -8,6 +8,7 @@ import BsRadio from '@/components/BsRadio/index.vue'
 import BsRadioGroup from '@/components/BsRadioGroup/index.vue'
 import BsSelect from '@/components/BsSelect/index.vue'
 import BsTextarea from '@/components/BsTextarea/index.vue'
+import BsButton from '@/components/BsButton/index.vue'
 import {createGlobalStyle} from '@vue-styled-components/core'
 
 const refLoginInput = ref()
@@ -44,6 +45,47 @@ const value1 = ref('한국어만asdf123!@#!   sdf 출력asdf')
 
 <template>
   <GlobalStyle />
+  <br />
+  <BsButton>sdf</BsButton>
+  <BsButton size="size-default">size-default</BsButton>
+  <BsButton theme="theme-default-outline" :color="`Gray/Lightgray_01`">size-default</BsButton>
+  <BsButton :color="`Gray/Lightgray_01`">Gray/Lightgray_01</BsButton>
+  <BsButton theme="theme-default-outline" :color="`Gray/Darkgray_05`">size-default</BsButton>
+  <BsButton :color="`Gray/Darkgray_05`">size-default</BsButton>
+  <BsButton size="size-large">size-large 높이 52</BsButton>
+  <BsButton size="size-medium">size-medium 높이 52</BsButton>
+  <BsButton theme="theme-default-outline" :color="`Warning/Point_Red`">DEFAULT_OUTLINE</BsButton>
+  <BsButton theme="theme-default-outline">DEFAULT_OUTLINE</BsButton>
+  <BsButton theme="theme-pills-outline">DEFAULT_OUTLINE</BsButton>
+  <BsButton to="/page">링크123</BsButton>
+  <BsButton to="/page" :color="`Warning/Point_Red`">링크</BsButton>
+  <BsButton disabled :color="`Warning/Point_Red`">
+    <template #slotButtonInnerSectionLeft>
+      <BsIcon :type="'icon_arrow_before_line'" />
+    </template>
+    sdf
+  </BsButton>
+  <BsButton :color="`Warning/Point_Red`">
+    <template #slotButtonInnerSectionLeft>
+      <BsIcon :type="'icon_arrow_before_line'" :color="`Gray/Darkgray_06`" />
+    </template>
+    sdf
+  </BsButton>
+  <BsButton theme="theme-pills">
+    sdf
+    <template #slotButtonInnerSectionRight>
+      <BsIcon :type="'icon_arrow_before_line'" />
+    </template>
+  </BsButton>
+  <BsButton>
+    <template #slotButtonInnerSectionLeft>
+      <BsIcon :type="'icon_arrow_before_line'" />
+    </template>
+    sdf
+    <template #slotButtonInnerSectionRight>
+      <BsIcon :type="'icon_arrow_before_line'" />
+    </template>
+  </BsButton>
   <br />
   <BsTextarea v-model="textareamodel" />{{ textareamodel }}<br />
   <BsRadioGroup v-model="radioItemsModel" :items="radioItems" theme="theme-2" />{{ radioItemsModel }}

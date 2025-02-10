@@ -1,7 +1,6 @@
 import {DESIGNCONFIG_KEYNAME_COLOR} from '@/themes/DesignConfig'
 
 export const COLOR_KEYNAME = Object.freeze(DESIGNCONFIG_KEYNAME_COLOR)
-console.log('COLOR_KEYNAME---', COLOR_KEYNAME)
 
 export const THEME_KEYNAME = Object.freeze({
   DEFAULT: 'theme-default',

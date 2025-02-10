@@ -1,6 +1,7 @@
 import _ from 'lodash'
 import * as KeyNamegroup from '@/themes/common/keynameGroup'
 import iconMapGroup from '@/themes/common/iconMapGroup'
+import {css} from '@vue-styled-components/core'
 
 export interface Type {
   colorSet: object
@@ -33,6 +34,25 @@ export const _toGetBackgroundSVG = (s: string, c?: string) => {
   const _s = s.replace(reg, _c).replace(reg, '%23$1')
   return `url('${_v},${_s}')`
 }
+
+export const _innerScrollCSS = css`
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 1;
+  }
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+`
 
 export default class DesignConfig {
   static colorSet = {

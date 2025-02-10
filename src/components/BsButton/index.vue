@@ -63,7 +63,7 @@ defineExpose({
 
 <template>
   <WarpperTag
-    refs="localRef"
+    ref="localRef"
     :data-theme="props.theme"
     :data-color="props.color || localDefaultColor"
     :data-size="props.size"

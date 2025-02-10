@@ -86,7 +86,7 @@ defineExpose({
     >
       <InputTextarea
         :id="props.id"
-        refs="localRef"
+        ref="localRef"
         :placeholder="props.placeholder"
         :value="localValue"
         :name="props.name"

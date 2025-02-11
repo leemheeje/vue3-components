@@ -9,6 +9,7 @@ import BsTextarea from '../src/components/BsTextarea/index.vue'
 import BsButton from '../src/components/BsButton/index.vue'
 import BsModal from '../src/components/BsModal/index.vue'
 import BsToast from '../src/components/BsToast/index.vue'
+import BsTooltip from '../src/components/BsTooltip/index.vue'
 
 export default {
   install: (app: any, settings?: any) => {
@@ -42,5 +43,6 @@ export {
   BsTextarea,
   BsButton,
   BsModal,
+  BsTooltip,
   BsToast
 }

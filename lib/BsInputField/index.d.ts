@@ -1,3 +1,20 @@
-import type {Props as BsInputFieldProp} from '../../src/components/BsInputField/index.type'
+export interface Props {
+  tag?: string
+  name?: string
+  id?: string
+  type?: string
+  theme?: 'theme-1' | 'theme-2'
+  inputFilter?: string
+  readonly?: boolean
+  disabled?: boolean
+  isError?: boolean
+  isConfirm?: boolean
+  placeholder?: string
+  errorMessage?: string
+  confirmMessage?: string
+  customStyle?: any
+  timeRange?: string
+  modelValue?: string
+}
 
-export type {BsInputFieldProp}
+export type {Props as BsInputFieldProp}

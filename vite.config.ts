@@ -12,17 +12,20 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: resolve(__dirname, 'lib/main.ts'),
-      name: 'test-leem-vue3-components',
-
-      fileName: 'index'
+      entry: {
+        index: resolve(__dirname, 'lib/main.ts'),
+        components: resolve(__dirname, 'lib/components/index.ts')
+      },
+      name: 'testleem',
+      fileName: (format, entryName) => `${entryName}.${format}.js`
     },
     rollupOptions: {
       external: ['vue'],
       output: {
         globals: {
           vue: 'Vue'
-        }
+        },
+        exports: 'named'
       }
     }
   }

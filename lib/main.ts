@@ -11,7 +11,7 @@ import {
   BsModal,
   BsTooltip,
   BsToast
-} from '../src/components/index'
+} from './components/index'
 
 export default {
   install: (app: any, settings?: any) => {

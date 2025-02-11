@@ -13,9 +13,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'lib/main.ts'),
-      name: 'testleem',
+      name: 'test-leem-vue3-components',
 
-      fileName: 'test-leem'
+      fileName: 'index'
     },
     rollupOptions: {
       external: ['vue'],

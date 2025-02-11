@@ -1,7 +1,7 @@
 {
   "name": "test-leem-vue3-components",
   "private": false,
-  "version": "1.31.0",
+  "version": "1.32.0",
   "type": "module",
   "files": [
     "dist"
@@ -15,9 +15,9 @@
       "types": "./dist/index.d.ts"
     },
     "./BsInputField": {
-      "import": "./dist/BsInputField/index.es.js",
-      "require": "./dist/BsInputField/index.cjs.js",
-      "types": "./dist/BsInputField/index.d.ts"
+      "import": "./dist/BsInputField.es.js",
+      "require": "./dist/BsInputField.cjs.js",
+      "types": "./dist/BsInputField.d.ts"
     }
   },
   "scripts": {

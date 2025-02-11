@@ -7,7 +7,9 @@ export default defineConfig({
   plugins: [
     vue(),
     ViteDts({
-      insertTypesEntry: true
+      insertTypesEntry: true,
+      rollupTypes: true,
+      tsconfigPath: './tsconfig.app.json'
     })
   ],
   resolve: {
@@ -20,9 +22,12 @@ export default defineConfig({
     lib: {
       entry: {
         index: resolve(__dirname, 'lib/main.ts'),
-        BsInputField: resolve(__dirname, 'lib/BsInputField/index.ts')
+        // BsInputField: resolve(__dirname, 'lib/BsInputField/index.ts'),
+        BsButton: resolve(__dirname, 'lib/BsButton/index.ts')
+        // BsCheckbox: resolve(__dirname, 'lib/BsCheckbox/index.ts')
       },
-      name: 'testleem',
+      name: 'kcp-ui-component',
+      formats: ['es', 'cjs'],
       fileName: (format, entryName) => `${entryName}.${format}.js`
     },
     rollupOptions: {

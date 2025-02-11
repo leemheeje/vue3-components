@@ -1,3 +1,14 @@
+import {
+  DesignConfigTypography,
+  DesignConfigColor,
+  DESIGNCONFIG_KEYNAME_TYPO,
+  DESIGNCONFIG_KEYNAME_COLOR,
+  DESIGNCONFIG_ICON_MAP,
+  _toGetBackgroundSVG,
+  _toCSSParse,
+  _toCSSUnit
+} from '../src/themes/DesignConfig'
+
 export default {
   install: (app: any, settings?: any) => {
     const externalSettings = settings || {}
@@ -17,4 +28,15 @@ export default {
     // app.component('BsCheckbox', BsIcon)
     // app.component('BsCheckboxGroup', BsIcon)
   }
+}
+
+export {
+  DesignConfigTypography,
+  DesignConfigColor,
+  DESIGNCONFIG_KEYNAME_TYPO,
+  DESIGNCONFIG_KEYNAME_COLOR,
+  DESIGNCONFIG_ICON_MAP,
+  _toGetBackgroundSVG,
+  _toCSSParse,
+  _toCSSUnit
 }

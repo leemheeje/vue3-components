@@ -85,6 +85,7 @@ export const ModalHeaderCloseButton = styled.button`
       DESIGNCONFIG_ICON_MAP['icon_cancel_line'],
       DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Gray/Black']]
     )};
+  background-size: 100%;
 `
 export const ModalContent = styled.div`
   padding: ${_toCSSUnit('16px')} ${_toCSSUnit('24px')};

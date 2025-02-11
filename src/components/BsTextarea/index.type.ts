@@ -13,5 +13,7 @@ export interface Props {
   confirmMessage?: string
   customStyle?: any
   timeRange?: string
+  useLengthCheck?: boolean
+  maxlength?: string | number
   modelValue?: string
 }

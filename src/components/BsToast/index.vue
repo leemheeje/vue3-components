@@ -17,7 +17,7 @@ import {ALIGN_KEYNAME} from '@/constants/components/BsModal/index'
 const props = withDefaults(defineProps<Props>(), {
   modelValue: false,
   headerText: 'headerText',
-  timer: 5,
+  timer: 5000,
   useHeaderIcon: true,
   useShadowCSS: true,
   align: ALIGN_KEYNAME.RIGHT_TOP
@@ -56,8 +56,8 @@ function clearTimer() {
 }
 function setTimer() {
   localTimeout.value = setTimeout(() => {
-    //emits('update:modelValue', false)
-  }, 1000 * props.timer)
+    emits('update:modelValue', false)
+  }, props.timer)
 }
 
 function onClose() {

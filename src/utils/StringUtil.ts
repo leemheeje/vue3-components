@@ -16,4 +16,21 @@ export default class StringUtil {
   static isEmpty(o: string) {
     return _.isEmpty(o)
   }
+  static getByteSize(str: string) {
+    let byteSize = 0
+    for (let i = 0; i < str.length; i++) {
+      const charCode = str.charCodeAt(i)
+      if (charCode <= 0x7f) {
+        byteSize += 1
+      } else if (charCode <= 0x7ff) {
+        byteSize += 2
+      } else if (charCode >= 0xd800 && charCode <= 0xdbff) {
+        byteSize += 4
+        i++
+      } else {
+        byteSize += 3
+      }
+    }
+    return byteSize
+  }
 }

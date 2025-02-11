@@ -11,6 +11,8 @@ import BsTextarea from '@/components/BsTextarea/index.vue'
 import BsButton from '@/components/BsButton/index.vue'
 import BsModal from '@/components/BsModal/index.vue'
 import BsToast from '@/components/BsToast/index.vue'
+import BsTooltip from '@/components/BsTooltip/index.vue'
+import BsSwiper from '@/components/BsSwiper/index.vue'
 import {createGlobalStyle} from '@vue-styled-components/core'
 
 const refLoginInput = ref()
@@ -33,6 +35,7 @@ const checkboxItemsModel = ref([
 ])
 const wxAwss = ref('aa1')
 const textareamodel = ref('aa1')
+const tooltipmodel = ref(false)
 const modalmodel = ref(false)
 const modaltoast = ref(true)
 
@@ -49,6 +52,15 @@ const value1 = ref('한국어만asdf123!@#!   sdf 출력asdf')
 
 <template>
   <GlobalStyle />
+  <div>
+    <button @click="tooltipmodel = !tooltipmodel">툴팁</button>:{{ tooltipmodel }} <br /><br /><br /><br />
+    <span style="margin-left: 100px; display: inline-block"></span>
+    <BsTooltip v-model="tooltipmodel">
+      <template #slotTooltipTarget> 내용asdfasfsdaf내용asdfasfsdaf내용asdfasfsdaf내용asdfasfsdaf </template>
+      툴팁내용툴팁내용툴팁내용툴팁내용
+    </BsTooltip>
+  </div>
+  <BsSwiper />
   <BsToast v-model="modaltoast">토스트여</BsToast>
   <BsToast v-model="modaltoast">토스트여</BsToast>
   <button @click="modaltoast = !modaltoast">modaltoast / {{ modaltoast }}</button>

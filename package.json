@@ -14,10 +14,35 @@
       "require": "./dist/index.cjs.js",
       "types": "./dist/index.d.ts"
     },
+    "./BsButton": {
+      "import": "./dist/BsButton.es.js",
+      "require": "./dist/BsButton.cjs.js",
+      "types": "./dist/BsButton.d.ts"
+    },
+    "./BsCheckbox": {
+      "import": "./dist/BsCheckbox.es.js",
+      "require": "./dist/BsCheckbox.cjs.js",
+      "types": "./dist/BsCheckbox.d.ts"
+    },
+    "./BsCheckboxGroup": {
+      "import": "./dist/BsCheckboxGroup.es.js",
+      "require": "./dist/BsCheckboxGroup.cjs.js",
+      "types": "./dist/BsCheckboxGroup.d.ts"
+    },
+    "./BsIcon": {
+      "import": "./dist/BsIcon.es.js",
+      "require": "./dist/BsIcon.cjs.js",
+      "types": "./dist/BsIcon.d.ts"
+    },
     "./BsInputField": {
       "import": "./dist/BsInputField.es.js",
       "require": "./dist/BsInputField.cjs.js",
       "types": "./dist/BsInputField.d.ts"
+    },
+    "./BsModal": {
+      "import": "./dist/BsModal.es.js",
+      "require": "./dist/BsModal.cjs.js",
+      "types": "./dist/BsModal.d.ts"
     }
   },
   "scripts": {

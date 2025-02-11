@@ -1,4 +1,4 @@
-export interface Props {
+interface Props {
   tag?: string
   name?: string
   id?: string
@@ -17,4 +17,4 @@ export interface Props {
   modelValue?: string
 }
 
-export type {Props as BsInputFieldProp}
+export type {Props}

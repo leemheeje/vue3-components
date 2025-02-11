@@ -1,18 +1,3 @@
-import {
-  BsInputField,
-  BsIcon,
-  BsCheckbox,
-  BsCheckboxGroup,
-  BsSelect,
-  BsRadio,
-  BsRadioGroup,
-  BsTextarea,
-  BsButton,
-  BsModal,
-  BsTooltip,
-  BsToast
-} from './components/index'
-
 export default {
   install: (app: any, settings?: any) => {
     const externalSettings = settings || {}
@@ -32,18 +17,4 @@ export default {
     // app.component('BsCheckbox', BsIcon)
     // app.component('BsCheckboxGroup', BsIcon)
   }
-}
-export {
-  BsInputField,
-  BsIcon,
-  BsCheckbox,
-  BsCheckboxGroup,
-  BsSelect,
-  BsRadio,
-  BsRadioGroup,
-  BsTextarea,
-  BsButton,
-  BsModal,
-  BsTooltip,
-  BsToast
 }

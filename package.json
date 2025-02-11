@@ -1,17 +1,22 @@
 {
   "name": "test-leem-vue3-components",
   "private": false,
-  "version": "1.28.0",
+  "version": "1.29.0",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/test-leem.umd.cjs",
-  "module": "./dist/test-leem.js",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
   "exports": {
     ".": {
-      "import": "./dist/test-leem.js",
-      "require": "./dist/test-leem.umd.cjs"
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    },
+    "./components": {
+      "import": "./dist/components/index.js",
+      "require": "./dist/components/index.cjs",
+      "types": "./dist/components/index.d.ts"
     }
   },
   "scripts": {

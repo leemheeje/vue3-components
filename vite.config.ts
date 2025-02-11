@@ -1,9 +1,15 @@
 import {resolve} from 'path'
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
+import ViteDts from 'vite-plugin-dts'
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    ViteDts({
+      insertTypesEntry: true
+    })
+  ],
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
@@ -14,7 +20,7 @@ export default defineConfig({
     lib: {
       entry: {
         index: resolve(__dirname, 'lib/main.ts'),
-        components: resolve(__dirname, 'lib/components/index.ts')
+        BsInputField: resolve(__dirname, 'lib/BsInputField/index.ts')
       },
       name: 'testleem',
       fileName: (format, entryName) => `${entryName}.${format}.js`

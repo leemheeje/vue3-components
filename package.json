@@ -1,7 +1,7 @@
 {
   "name": "test-leem-vue3-components",
   "private": false,
-  "version": "1.30.0",
+  "version": "1.31.0",
   "type": "module",
   "files": [
     "dist"
@@ -14,10 +14,10 @@
       "require": "./dist/index.cjs.js",
       "types": "./dist/index.d.ts"
     },
-    "./components": {
-      "import": "./dist/components.es.js",
-      "require": "./dist/components.cjs.js",
-      "types": "./dist/components.d.ts"
+    "./BsInputField": {
+      "import": "./dist/BsInputField/index.es.js",
+      "require": "./dist/BsInputField/index.cjs.js",
+      "types": "./dist/BsInputField/index.d.ts"
     }
   },
   "scripts": {
@@ -60,6 +60,7 @@
     "sass": "^1.83.0",
     "typescript": "~5.6.2",
     "vite": "^6.0.5",
+    "vite-plugin-dts": "^4.5.0",
     "vitest": "^2.1.8",
     "vue-tsc": "^2.2.0"
   }

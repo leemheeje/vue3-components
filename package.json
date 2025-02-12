@@ -43,6 +43,36 @@
       "import": "./dist/BsModal.es.js",
       "require": "./dist/BsModal.cjs.js",
       "types": "./dist/BsModal.d.ts"
+    },
+    "./BsRadio": {
+      "import": "./dist/BsRadio.es.js",
+      "require": "./dist/BsRadio.cjs.js",
+      "types": "./dist/BsRadio.d.ts"
+    },
+    "./BsRadioGroup": {
+      "import": "./dist/BsRadioGroup.es.js",
+      "require": "./dist/BsRadioGroup.cjs.js",
+      "types": "./dist/BsRadioGroup.d.ts"
+    },
+    "./BsSelect": {
+      "import": "./dist/BsSelect.es.js",
+      "require": "./dist/BsSelect.cjs.js",
+      "types": "./dist/BsSelect.d.ts"
+    },
+    "./BsTextarea": {
+      "import": "./dist/BsTextarea.es.js",
+      "require": "./dist/BsTextarea.cjs.js",
+      "types": "./dist/BsTextarea.d.ts"
+    },
+    "./BsToast": {
+      "import": "./dist/BsToast.es.js",
+      "require": "./dist/BsToast.cjs.js",
+      "types": "./dist/BsToast.d.ts"
+    },
+    "./BsTooltip": {
+      "import": "./dist/BsTooltip.es.js",
+      "require": "./dist/BsTooltip.cjs.js",
+      "types": "./dist/BsTooltip.d.ts"
     }
   },
   "scripts": {

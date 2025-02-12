@@ -1,5 +1,4 @@
-import BsCheckbox from '../../src/components/BsCheckbox/index.vue'
-import type {Props as BsCheckboxProps} from '../../src/components/BsCheckbox/index.type'
-import {THEME_KEYNAME} from '../../src/constants/components/BsCheckbox/index'
+import BsIcon from '../../src/components/BsIcon/index.vue'
+import type {Props as BsIconProps} from '../../src/components/BsIcon/index.type'
 
-export {BsCheckbox, THEME_KEYNAME, type BsCheckboxProps}
+export {BsIcon, type BsIconProps}

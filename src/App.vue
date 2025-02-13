@@ -13,6 +13,7 @@ import BsModal from '@/components/BsModal/index.vue'
 import BsToast from '@/components/BsToast/index.vue'
 import BsTooltip from '@/components/BsTooltip/index.vue'
 import BsButton2 from '@/components/BsButton2/index.vue'
+import BsPagination from '@/components/BsPagination/index.vue'
 import {createGlobalStyle} from '@vue-styled-components/core'
 
 const refLoginInput = ref()
@@ -38,6 +39,7 @@ const textareamodel = ref('aa1')
 const tooltipmodel = ref(false)
 const modalmodel = ref(false)
 const modaltoast = ref(true)
+const paginationmodel = ref(2)
 
 onMounted(() => {
   // refLoginInput.value.setFocus()
@@ -53,6 +55,8 @@ const value1 = ref('한국어만asdf123!@#!   sdf 출력asdf')
 <template>
   <GlobalStyle />
   <BsButton2 color="blue" />
+  {{ paginationmodel }}
+  <BsPagination v-model="paginationmodel" :total-row="100" />
   <div>
     <button @click="tooltipmodel = !tooltipmodel">툴팁</button>:{{ tooltipmodel }} <br /><br /><br /><br />
     <span style="margin-left: 100px; display: inline-block"></span>

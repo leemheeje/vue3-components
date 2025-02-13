@@ -1,0 +1,45 @@
+- DefineConfig 사용법 src/theme/DefineConfig
+- 컴포넌트 기본구성
+    - index.vue
+    - index.style
+    - index.type
+    - index.test
+    - README.md
+    - 해당컴포넌트의 상수(constant) 모음
+        - src/constants/components/컴포넌트명/index
+- 컴포넌트 작업 후
+    - lib/작업컴포넌트 폴더 생성
+    - package.json exports 에서 esm,type,commonJS 경로 작성
+- 이슈
+    - Nuxt SSR/CSR 시 스타일드 컴포넌트의 클래스 난수가 달라서 Warn 
+    - //StroyBook 활용 - 생각보다.. ㅠ 
+    <clientonly>
+    div class="styled-ASDFWEXC124 Wrapping"
+    </clientonly>
+- 담당자 지정
+    - inputField/Select
+        - 희재K
+    - checkbox
+        - 원형K
+    - radio
+        - 원형K
+    - textarea
+        - 희재K
+    - button
+        - 평우K
+    - modal/toast
+        - 민주K
+    - tooltip
+        - 평우K
+    - pagination
+        - 원형K
+    - accordiaon 
+        - 민주K
+    - tab
+        - 평우K
+    - swiper
+        - 민주K
+    - time/datepicker
+        - 원형K
+    - preloader(loadingbar)
+        - 평우K

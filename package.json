@@ -69,6 +69,11 @@
       "require": "./dist/BsToast.cjs.js",
       "types": "./dist/BsToast.d.ts"
     },
+    "./BsButton2": {
+      "import": "./dist/BsButton2.es.js",
+      "require": "./dist/BsButton2.cjs.js",
+      "types": "./dist/BsButton2.d.ts"
+    },
     "./BsTooltip": {
       "import": "./dist/BsTooltip.es.js",
       "require": "./dist/BsTooltip.cjs.js",

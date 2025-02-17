@@ -74,6 +74,11 @@
       "require": "./dist/BsButton2.cjs.js",
       "types": "./dist/BsButton2.d.ts"
     },
+    "./BsPagination": {
+      "import": "./dist/BsPagination.es.js",
+      "require": "./dist/BsPagination.cjs.js",
+      "types": "./dist/BsPagination.d.ts"
+    },
     "./BsTooltip": {
       "import": "./dist/BsTooltip.es.js",
       "require": "./dist/BsTooltip.cjs.js",

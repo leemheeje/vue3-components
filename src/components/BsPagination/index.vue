@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
   theme: THEME_KEYNAME.THEME_1,
   totalRow: 0,
   perViewCount: 3,
-  useMoreUi: true,
+  useMoreUi: false,
   modelValue: 1
 })
 

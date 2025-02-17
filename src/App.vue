@@ -39,7 +39,7 @@ const textareamodel = ref('aa1')
 const tooltipmodel = ref(false)
 const modalmodel = ref(false)
 const modaltoast = ref(true)
-const paginationmodel = ref(2)
+const paginationmodel = ref(115)
 
 onMounted(() => {
   // refLoginInput.value.setFocus()
@@ -55,8 +55,8 @@ const value1 = ref('한국어만asdf123!@#!   sdf 출력asdf')
 <template>
   <GlobalStyle />
   <BsButton2 color="blue" />
-  {{ paginationmodel }}
-  <BsPagination v-model="paginationmodel" :total-row="100" />
+  <button @click="paginationmodel = 19">paginationmodel 19</button>{{ paginationmodel }}
+  <BsPagination v-model="paginationmodel" :total-row="115" />
   <div>
     <button @click="tooltipmodel = !tooltipmodel">툴팁</button>:{{ tooltipmodel }} <br /><br /><br /><br />
     <span style="margin-left: 100px; display: inline-block"></span>

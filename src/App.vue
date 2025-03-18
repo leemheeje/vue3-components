@@ -14,6 +14,7 @@ import BsToast from '@/components/BsToast/index.vue'
 import BsTooltip from '@/components/BsTooltip/index.vue'
 import BsButton2 from '@/components/BsButton2/index.vue'
 import BsPagination from '@/components/BsPagination/index.vue'
+import BsSwiper from '@/components/BsSwiper/index.vue'
 import {createGlobalStyle} from '@vue-styled-components/core'
 
 const refLoginInput = ref()
@@ -50,10 +51,36 @@ const GlobalStyle = createGlobalStyle`
     }
   `
 const value1 = ref('한국어만asdf123!@#!   sdf 출력asdf')
+
+const images = [
+  'src/components/BsSwiper/swiper-img.png',
+  'src/components/BsSwiper/swiper-img.png',
+  'src/components/BsSwiper/swiper-img.png'
+]
 </script>
 
 <template>
   <GlobalStyle />
+  <h2>* Swiper</h2>
+  <p>1-1</p>
+  <BsSwiper type="pagination" sub-type="1-1" :images="images" />
+  <br />
+  <p>1-2</p>
+  <p>s</p>
+  <BsSwiper type="pagination" sub-type="1-2" :images="images" navigation-size="S" />
+  <br />
+  <p>m</p>
+  <BsSwiper type="pagination" sub-type="1-2" :images="images" navigation-size="M" />
+  <br />
+  <p>2-1</p>
+  <BsSwiper type="numbering" sub-type="2-1" :images="images" />
+  <br />
+  <p>2-2</p>
+  <BsSwiper type="numbering" sub-type="2-2" :images="images" label="label" />
+  <br />
+  <br />
+  <br />
+  <br />
   <BsButton2 color="blue" />
   <button @click="paginationmodel = 19">paginationmodel 19</button>{{ paginationmodel }}
   <BsPagination v-model="paginationmodel" :total-row="115" />

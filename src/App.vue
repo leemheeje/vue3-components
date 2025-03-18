@@ -14,6 +14,8 @@ import BsToast from '@/components/BsToast/index.vue'
 import BsTooltip from '@/components/BsTooltip/index.vue'
 import BsButton2 from '@/components/BsButton2/index.vue'
 import BsPagination from '@/components/BsPagination/index.vue'
+import BsDatepicker from '@/components/BsDatepicker/index.vue'
+import BsTimepicker from '@/components/BsTimepicker/index.vue'
 import {createGlobalStyle} from '@vue-styled-components/core'
 
 const refLoginInput = ref()
@@ -40,6 +42,10 @@ const tooltipmodel = ref(false)
 const modalmodel = ref(false)
 const modaltoast = ref(true)
 const paginationmodel = ref(2)
+const datepickerDate1 = ref(new Date())
+// const datepickerDate1 = ref()
+const datepickerDate2 = ref({start: new Date(), end: new Date()})
+// const datepickerDate2 = ref()
 
 onMounted(() => {
   // refLoginInput.value.setFocus()
@@ -54,6 +60,13 @@ const value1 = ref('한국어만asdf123!@#!   sdf 출력asdf')
 
 <template>
   <GlobalStyle />
+  {{ datepickerDate1 }}
+  <BsDatepicker v-model="datepickerDate1" color="test" :is-range="false"></BsDatepicker>
+  {{ datepickerDate2 }}
+  <BsDatepicker v-model="datepickerDate2" color="test" :is-range="true"></BsDatepicker>
+
+  <BsTimepicker color="red"></BsTimepicker>
+
   <BsButton2 color="blue" />
   {{ paginationmodel }}
   <BsPagination v-model="paginationmodel" :total-row="100" />

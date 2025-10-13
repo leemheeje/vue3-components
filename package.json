@@ -10,79 +10,74 @@
   "module": "./dist/index.js",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs.js"
     },
     "./BsButton": {
+      "types": "./dist/BsButton.d.ts",
       "import": "./dist/BsButton.es.js",
-      "require": "./dist/BsButton.cjs.js",
-      "types": "./dist/BsButton.d.ts"
+      "require": "./dist/BsButton.cjs.js"
     },
     "./BsCheckbox": {
+      "types": "./dist/BsCheckbox.d.ts",
       "import": "./dist/BsCheckbox.es.js",
-      "require": "./dist/BsCheckbox.cjs.js",
-      "types": "./dist/BsCheckbox.d.ts"
+      "require": "./dist/BsCheckbox.cjs.js"
     },
     "./BsCheckboxGroup": {
+      "types": "./dist/BsCheckboxGroup.d.ts",
       "import": "./dist/BsCheckboxGroup.es.js",
-      "require": "./dist/BsCheckboxGroup.cjs.js",
-      "types": "./dist/BsCheckboxGroup.d.ts"
+      "require": "./dist/BsCheckboxGroup.cjs.js"
     },
     "./BsIcon": {
+      "types": "./dist/BsIcon.d.ts",
       "import": "./dist/BsIcon.es.js",
-      "require": "./dist/BsIcon.cjs.js",
-      "types": "./dist/BsIcon.d.ts"
+      "require": "./dist/BsIcon.cjs.js"
     },
     "./BsInputField": {
+      "types": "./dist/BsInputField.d.ts",
       "import": "./dist/BsInputField.es.js",
-      "require": "./dist/BsInputField.cjs.js",
-      "types": "./dist/BsInputField.d.ts"
+      "require": "./dist/BsInputField.cjs.js"
     },
     "./BsModal": {
+      "types": "./dist/BsModal.d.ts",
       "import": "./dist/BsModal.es.js",
-      "require": "./dist/BsModal.cjs.js",
-      "types": "./dist/BsModal.d.ts"
+      "require": "./dist/BsModal.cjs.js"
     },
     "./BsRadio": {
+      "types": "./dist/BsRadio.d.ts",
       "import": "./dist/BsRadio.es.js",
-      "require": "./dist/BsRadio.cjs.js",
-      "types": "./dist/BsRadio.d.ts"
+      "require": "./dist/BsRadio.cjs.js"
     },
     "./BsRadioGroup": {
+      "types": "./dist/BsRadioGroup.d.ts",
       "import": "./dist/BsRadioGroup.es.js",
-      "require": "./dist/BsRadioGroup.cjs.js",
-      "types": "./dist/BsRadioGroup.d.ts"
+      "require": "./dist/BsRadioGroup.cjs.js"
     },
     "./BsSelect": {
+      "types": "./dist/BsSelect.d.ts",
       "import": "./dist/BsSelect.es.js",
-      "require": "./dist/BsSelect.cjs.js",
-      "types": "./dist/BsSelect.d.ts"
+      "require": "./dist/BsSelect.cjs.js"
     },
     "./BsTextarea": {
+      "types": "./dist/BsTextarea.d.ts",
       "import": "./dist/BsTextarea.es.js",
-      "require": "./dist/BsTextarea.cjs.js",
-      "types": "./dist/BsTextarea.d.ts"
+      "require": "./dist/BsTextarea.cjs.js"
     },
     "./BsToast": {
+      "types": "./dist/BsToast.d.ts",
       "import": "./dist/BsToast.es.js",
-      "require": "./dist/BsToast.cjs.js",
-      "types": "./dist/BsToast.d.ts"
-    },
-    "./BsButton2": {
-      "import": "./dist/BsButton2.es.js",
-      "require": "./dist/BsButton2.cjs.js",
-      "types": "./dist/BsButton2.d.ts"
+      "require": "./dist/BsToast.cjs.js"
     },
     "./BsPagination": {
+      "types": "./dist/BsPagination.d.ts",
       "import": "./dist/BsPagination.es.js",
-      "require": "./dist/BsPagination.cjs.js",
-      "types": "./dist/BsPagination.d.ts"
+      "require": "./dist/BsPagination.cjs.js"
     },
     "./BsTooltip": {
+      "types": "./dist/BsTooltip.d.ts",
       "import": "./dist/BsTooltip.es.js",
-      "require": "./dist/BsTooltip.cjs.js",
-      "types": "./dist/BsTooltip.d.ts"
+      "require": "./dist/BsTooltip.cjs.js"
     }
   },
   "scripts": {

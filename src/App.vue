@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {onMounted, ref} from 'vue'
+import {onMounted, reactive, ref} from 'vue'
 import BsInputField from '@/components/BsInputField/index.vue'
 import BsIcon from '@/components/BsIcon/index.vue'
 import BsCheckbox from '@/components/BsCheckbox/index.vue'
@@ -12,7 +12,6 @@ import BsButton from '@/components/BsButton/index.vue'
 import BsModal from '@/components/BsModal/index.vue'
 import BsToast from '@/components/BsToast/index.vue'
 import BsTooltip from '@/components/BsTooltip/index.vue'
-import BsButton2 from '@/components/BsButton2/index.vue'
 import BsPagination from '@/components/BsPagination/index.vue'
 import {createGlobalStyle} from '@vue-styled-components/core'
 
@@ -40,6 +39,9 @@ const tooltipmodel = ref(false)
 const modalmodel = ref(false)
 const modaltoast = ref(true)
 const paginationmodel = ref(115)
+const testemi = reactive({
+  asdf: 1
+})
 
 onMounted(() => {
   // refLoginInput.value.setFocus()
@@ -50,11 +52,15 @@ const GlobalStyle = createGlobalStyle`
     }
   `
 const value1 = ref('한국어만asdf123!@#!   sdf 출력asdf')
+function test() {
+  testemi.asdf++
+}
 </script>
 
 <template>
   <GlobalStyle />
-  <BsButton2 color="blue" />
+  <br />
+  <button @click="test">paginationmodel 19</button>{{ testemi }}
   <button @click="paginationmodel = 19">paginationmodel 19</button>{{ paginationmodel }}
   <BsPagination v-model="paginationmodel" :total-row="115" />
   <div>
@@ -115,6 +121,10 @@ const value1 = ref('한국어만asdf123!@#!   sdf 출력asdf')
   </BsButton>
   <br />
   <BsTextarea v-model="textareamodel" />{{ textareamodel }}<br />
+  <pre>
+    {{ textareamodel }}
+  </pre>
+  <br />
   <BsRadioGroup v-model="radioItemsModel" :items="radioItems" theme="theme-2" />{{ radioItemsModel }}
   <BsRadioGroup v-model="radioItemsModel" :items="radioItems" theme="theme-1" />{{ radioItemsModel }}
   <br />
@@ -123,7 +133,7 @@ const value1 = ref('한국어만asdf123!@#!   sdf 출력asdf')
   <br />
   {{ selectmodel }}
   <BsSelect v-model="selectmodel">
-    <option value="1">1</option>
+    <option value="1">3</option>
     <option value="2">2</option>
     <option value="3">3</option>
   </BsSelect>

@@ -24,7 +24,7 @@ watch(
   () => props.modelValue,
   (v) => {
     localValue.value = v
-    localValueString.value = JSON.stringify(v)
+    localValueString.value = typeof v === 'string' ? v : JSON.stringify(v)
   },
   {immediate: true}
 )
@@ -46,7 +46,7 @@ function setTheme() {
   return themeName
 }
 
-function onChange(item: Record<string, any>, e: Event) {
+function onChange(item: Record<string, any> | string, e: Event) {
   emits('change', e)
   emits('update:modelValue', item)
 }
@@ -59,7 +59,7 @@ function onChange(item: Record<string, any>, e: Event) {
         v-model="localValueString"
         :theme="setTheme()"
         :name="localName"
-        :value="JSON.stringify(item)"
+        :value="typeof item === 'string' ? item : JSON.stringify(item)"
         :use-theme6-check-icon="props.useTheme6CheckIcon"
         :disabled="props.disabled"
         @change="(e) => onChange(item, e)"

@@ -25,3 +25,11 @@ export const BUTTON_LAYOUT = Object.freeze({
   LAYOUT_RIGHT: 'layout-right',
   LAYOUT_CENTER: 'layout-center'
 })
+export const BUTTON_KEYNAME = Object.freeze({
+  CANCEL: 'cancel',
+  CONFIRM: 'confirm'
+})
+export const MODAL_TYPE = Object.freeze({
+  ALERT: 'alert',
+  CONFIRM: 'confirm'
+})

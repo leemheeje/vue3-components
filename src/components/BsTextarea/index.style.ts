@@ -18,20 +18,36 @@ import {
   InputOuterSectionArea,
   InputSupportMasseage,
   InputErrorMasseage,
-  InputConfirmMasseage
+  InputConfirmMasseage,
+  INPUT_HEIGHT
 } from '@/components/BsInputField/index.style'
 
+const USE_RESPONSE_HEIGHT = 'use-response-height'
+
+const WrapperTextarea = styled.div`
+  ${Wrapper};
+`
 const InputInnerSectionArea = styled('div', {
   class: String
 })`
   ${InputInnerSectionAreaCSS};
   padding: ${_toCSSUnit('16px')};
   flex-direction: column;
+  ${WrapperTextarea}.${USE_RESPONSE_HEIGHT} & {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 `
 const InputTextarea = styled.textarea`
   ${inputCSS};
   height: ${_toCSSUnit('128px')};
   resize: none;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  ${WrapperTextarea}.${USE_RESPONSE_HEIGHT} & {
+    height: ${_toCSSUnit(INPUT_HEIGHT)};
+    padding: ${_toCSSUnit('13px')} 0;
+  }
 `
 
 export const InputInnerBottomSectionArea = styled.div`
@@ -56,11 +72,11 @@ export const InputByteCheckArea = styled.span`
   ${css`
     ${_toCSSParse(DesignConfigTypography[DESIGNCONFIG_KEYNAME_TYPO['Body1/Regular']])}
   `}
-  color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Gray/Darkgray_06']]};
+  color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['kcpgray/60']]};
 `
 
 export {
-  Wrapper,
+  WrapperTextarea,
   InputInnerSectionArea,
   InputTextarea,
   InputSectionLeftArea,

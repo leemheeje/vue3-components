@@ -7,11 +7,13 @@ import {
   DESIGNCONFIG_ICON_MAP,
   _innerScrollCSS
 } from '@/themes/DesignConfig'
-import {ALIGN_GUBUN, ALIGN_KEYNAME} from '@/constants/components/BsModal/index'
+import {ALIGN_GUBUN, ALIGN_KEYNAME, BUTTON_LAYOUT} from '@/constants/components/BsModal/index'
 import {WrapperButton} from '@/components/BsButton/index.style'
-const LAYOUT_AUTO = 'layout-auto'
-const LAYOUT_RIGHT = 'layout-right'
-const LAYOUT_CENTER = 'layout-center'
+const LAYOUT_AUTO = BUTTON_LAYOUT['LAYOUT_AUTO']
+const LAYOUT_RIGHT = BUTTON_LAYOUT['LAYOUT_RIGHT']
+const LAYOUT_CENTER = BUTTON_LAYOUT['LAYOUT_CENTER']
+const IS_HEADER_TEXT_CENTER = 'is-header-text-center'
+const IS_HEADER_CLOSE_BUTTON_VALIGN = 'is-header-close-button-valign'
 
 export const AlignCSS = css`
   display: flex;
@@ -55,13 +57,7 @@ export const Wrapper = styled.div`
 export const ModalInnerSection = styled.div`
   min-width: ${_toCSSUnit('350px')};
   border-radius: ${_toCSSUnit('8px')};
-  background-color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Gray/White']]};
-`
-export const ModalHeader = styled.div`
-  padding: ${_toCSSUnit('24px')};
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  background-color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['common-0']]};
 `
 export const ModalHeaderText = styled.div`
   font-family: Pretendard;
@@ -71,6 +67,10 @@ export const ModalHeaderText = styled.div`
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
+  ${Wrapper}.${IS_HEADER_TEXT_CENTER} & {
+    margin-left: auto;
+    margin-right: auto;
+  }
 `
 export const ModalHeaderCloseButton = styled.button`
   width: ${_toCSSUnit('24px')};
@@ -82,11 +82,30 @@ export const ModalHeaderCloseButton = styled.button`
   cursor: pointer;
   background: transparent no-repeat center center
     ${_toGetBackgroundSVG(
-      DESIGNCONFIG_ICON_MAP['icon_cancel_line'],
-      DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Gray/Black']]
+      DESIGNCONFIG_ICON_MAP['icon_close'],
+      DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['common-100']]
     )};
   background-size: 100%;
 `
+export const ModalHeader = styled.div`
+  padding: ${_toCSSUnit('24px')};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  ${Wrapper}.${IS_HEADER_CLOSE_BUTTON_VALIGN} & {
+    flex-direction: column-reverse;
+    gap: ${_toCSSUnit('10px')};
+    ${ModalHeaderText} {
+      margin-left: 0;
+      margin-right: auto;
+    }
+    ${ModalHeaderCloseButton} {
+      margin-left: auto;
+      margin-right: 0;
+    }
+  }
+`
+
 export const ModalContent = styled.div`
   padding: ${_toCSSUnit('16px')} ${_toCSSUnit('24px')};
   max-height: calc(100vh - 240px);

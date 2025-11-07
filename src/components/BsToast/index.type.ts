@@ -5,6 +5,7 @@ export interface Props {
   teleportTo?: string
   headerText?: string
   useShadowCSS?: boolean
+  useCloseButton?: boolean
   useHeaderIcon?: boolean
   align?: keyof typeof ALIGN_KEYNAME
 }

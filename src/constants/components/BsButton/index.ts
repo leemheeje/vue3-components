@@ -7,10 +7,12 @@ export const THEME_KEYNAME = Object.freeze({
   DEFAULT_OUTLINE: 'theme-default-outline',
   PILLS: 'theme-pills',
   PILLS_OUTLINE: 'theme-pills-outline',
-  TEXT: 'theme-text'
+  TEXT: 'theme-text',
+  FLOAT: 'theme-float'
 })
 export const SIZE_KEYNAME = Object.freeze({
   DEFAULT: 'size-default',
   LARGE: 'size-large',
-  MEDIUM: 'size-medium'
+  MEDIUM: 'size-medium',
+  SMALL: 'size-small'
 })

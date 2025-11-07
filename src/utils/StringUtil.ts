@@ -1,8 +1,15 @@
 import _ from 'lodash'
+import {DATE_FORMAT} from '@/constants/DateFormat'
+import dayjs from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+import 'dayjs/locale/ko'
+
+dayjs.extend(customParseFormat)
+dayjs.locale('ko')
 
 export default class StringUtil {
-  static getUUID() {
-    return _.uniqueId('_uid_')
+  static getUUID(s?: string) {
+    return _.uniqueId(`${s ? s : ''}_uid_`)
   }
   static isHtmlCode(s: string) {
     return /<\/?[a-z][\s\S]*>/i.test(s)
@@ -15,6 +22,16 @@ export default class StringUtil {
   }
   static isEmpty(o: string) {
     return _.isEmpty(o)
+  }
+  static isLooseEqual(a: string | number, b: string | number) {
+    if (typeof a !== 'object' || typeof b !== 'object' || a === null || b === null) {
+      return a == b
+    } else {
+      return false
+    }
+  }
+  static isString(o: any) {
+    return typeof o === 'string'
   }
   static getByteSize(str: string) {
     let byteSize = 0
@@ -32,5 +49,12 @@ export default class StringUtil {
       }
     }
     return byteSize
+  }
+  static getDateFormat(d: Date, f: string = DATE_FORMAT['YYYY-MM-DD']) {
+    let now = dayjs(d)
+    if (f === DATE_FORMAT['hh:mm'] || f === DATE_FORMAT['HH:mm']) {
+      now = dayjs(d).locale('en')
+    }
+    return now.format(f)
   }
 }

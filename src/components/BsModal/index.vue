@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {onBeforeUnmount, ref, watch} from 'vue'
 import {useScrollLock} from '@vueuse/core'
-import {} from 'vue'
 import {
   Dimm,
   Wrapper,
@@ -16,25 +15,28 @@ import {
 import type {Props} from '@/components/BsModal/index.type'
 import BsButton from '@/components/BsButton/index.vue'
 import {THEME_KEYNAME, COLOR_KEYNAME} from '@/constants/components/BsButton/index'
-import {ALIGN_KEYNAME, BUTTON_LAYOUT} from '@/constants/components/BsModal/index'
+import {BUTTON_KEYNAME, ALIGN_KEYNAME, BUTTON_LAYOUT} from '@/constants/components/BsModal/index'
 import ObjectUtil from '@/utils/ObjectUtil'
 
 const props = withDefaults(defineProps<Props>(), {
   teleportTo: 'body',
-  headerText: 'headerText',
+  headerText: 'Title',
+  headerTextCenter: false,
+  headerCloseButtonValign: false,
   useDimm: true,
   align: ALIGN_KEYNAME.CENTER_CENTER,
-  buttonLayout: BUTTON_LAYOUT.LAYOUT_RIGHT,
+  buttonLayout: BUTTON_LAYOUT.LAYOUT_AUTO,
+  useCloseButton: true,
   buttons: () => [
-    {codeText: '취소', clickCallback: () => {}},
-    {codeText: '확인', clickCallback: () => {}}
+    {codeName: BUTTON_KEYNAME.CANCEL, codeText: '취소', clickCallback: () => {}},
+    {codeName: BUTTON_KEYNAME.CONFIRM, codeText: '확인', clickCallback: () => {}}
   ],
   modelValue: false
 })
 const localRef = ref()
 const localValue = ref()
 const isLocked = useScrollLock(document.documentElement)
-const emits = defineEmits(['update:modelValue', 'close'])
+const emits = defineEmits(['update:modelValue', 'close', 'confirm'])
 
 watch(
   () => props.modelValue,
@@ -59,6 +61,12 @@ function onClose() {
 }
 function onButtonClick(item: Record<string, any>) {
   if (typeof item.clickCallback === 'function') {
+    if (item.codeName === BUTTON_KEYNAME.CANCEL) {
+      onClose()
+    }
+    if (item.codeName === BUTTON_KEYNAME.CONFIRM) {
+      emits('confirm')
+    }
     item.clickCallback(item)
   }
 }
@@ -71,11 +79,23 @@ defineExpose({
 <template>
   <Teleport v-if="localValue" :to="props.teleportTo">
     <Dimm v-if="props.useDimm" />
-    <Wrapper ref="localRef" tabindex="0" :data-align="props.align" @click.self="onClose">
+    <Wrapper
+      ref="localRef"
+      tabindex="0"
+      :data-align="props.align"
+      :class="{
+        'is-header-close-button-valign':
+          !props.headerTextCenter && props.headerCloseButtonValign && props.useCloseButton,
+        'is-header-text-center': props.headerTextCenter
+      }"
+      @click.self="onClose"
+    >
       <ModalInnerSection>
         <ModalHeader>
           <ModalHeaderText>{{ props.headerText }}</ModalHeaderText>
-          <ModalHeaderCloseButton @click="onClose"></ModalHeaderCloseButton>
+          <template v-if="!props.headerTextCenter && props.useCloseButton">
+            <ModalHeaderCloseButton @click="onClose"></ModalHeaderCloseButton>
+          </template>
         </ModalHeader>
         <ModalContent><slot /></ModalContent>
         <ModalFooter v-if="!ObjectUtil.isEmpty(props.buttons)">
@@ -88,8 +108,8 @@ defineExpose({
               "
               :color="
                 ObjectUtil.isLastIndex(props.buttons, index)
-                  ? COLOR_KEYNAME['Primary/Primary_01']
-                  : COLOR_KEYNAME[`Gray/Darkgray_01`]
+                  ? COLOR_KEYNAME['kcpblue/50']
+                  : COLOR_KEYNAME[`kcpgray/10`]
               "
               @click="onButtonClick(item)"
             >

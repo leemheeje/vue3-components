@@ -16,12 +16,12 @@ import {ALIGN_KEYNAME} from '@/constants/components/BsModal/index'
 
 const props = withDefaults(defineProps<Props>(), {
   modelValue: false,
-  headerText: 'headerText',
+  headerText: 'Title',
   timer: 5000,
   useHeaderIcon: true,
+  useCloseButton: true,
   useShadowCSS: true,
-  align: ALIGN_KEYNAME.RIGHT_TOP
-  //   align: ALIGN_KEYNAME.CENTER_BOTTOM
+  align: ALIGN_KEYNAME.CENTER_BOTTOM
 })
 
 const localValue = ref(false)
@@ -79,15 +79,23 @@ function onClose() {
         'is-headericon': props.useHeaderIcon
       }"
     >
-      <ToastInnerSection @click="onClose">
+      <ToastInnerSection>
         <ToastHeader>
           <ToastHeaderText>
-            <ToastHeaderIcon />
+            <ToastHeaderIcon v-if="props.useHeaderIcon" />
             {{ props.headerText }}
           </ToastHeaderText>
-          <ToastHeaderCloseButton></ToastHeaderCloseButton>
+          <ToastHeaderCloseButton
+            v-if="props.useCloseButton"
+            :class="{
+              'use-text-action-button': $slots.slotTextActionButton
+            }"
+            @click="onClose"
+          >
+            <slot name="slotTextActionButton" />
+          </ToastHeaderCloseButton>
         </ToastHeader>
-        <ToastContent><slot /></ToastContent>
+        <ToastContent v-if="$slots.default"><slot /></ToastContent>
       </ToastInnerSection>
     </Wrapper>
   </Teleport>

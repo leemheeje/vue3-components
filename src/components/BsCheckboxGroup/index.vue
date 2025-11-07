@@ -60,7 +60,7 @@ function setTheme() {
       <BsCheckbox
         :theme="setTheme()"
         :use-theme6-check-icon="props.useTheme6CheckIcon"
-        :disabled="props.disabled"
+        :disabled="props.disabled || item.disabled"
         :checked="isChecked(item, localValue)"
         @change="(e) => onChange(e, item)"
       >

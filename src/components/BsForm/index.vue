@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {onMounted, ref, nextTick, useSlots} from 'vue'
+import {onMounted, ref, nextTick} from 'vue'
 import {Wrapper, FormInner, LabelArea, Label, FormContent} from '@/components/BsForm/index.style'
 import type {Props} from '@/components/BsForm/index.type'
 import StringUtil from '@/utils/StringUtil'
@@ -11,15 +11,12 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const localId = ref('')
-const slots = useSlots()
-const $slotDefaultContent = slots.default
 
 onMounted(() => {
   nextTick(() => {
     const _localId = StringUtil.getUUID()
     localId.value = props.id || _localId
   })
-  console.log('$slotDefaultContent', $slotDefaultContent?.())
 })
 </script>
 

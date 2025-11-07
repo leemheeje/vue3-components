@@ -1,7 +1,15 @@
 <script setup lang="ts">
 import {nextTick, onMounted, ref, watch} from 'vue'
 import StringUtil from '@/utils/StringUtil'
-import {Wrapper, inputCSS, InputLabel, InputLabelText, InputCheckUI} from '@/components/BsCheckbox/index.style'
+import {
+  Wrapper,
+  inputCSS,
+  InputLabel,
+  InputLabelText,
+  InputCheckUI,
+  IS_DISABLED,
+  USE_THEME_6_CHECKICON
+} from '@/components/BsCheckbox/index.style'
 import type {Props} from '@/components/BsCheckbox/index.type'
 import {THEME_KEYNAME} from '@/constants/components/BsCheckbox/index'
 
@@ -49,9 +57,8 @@ function onChange(e: Event) {
 <template>
   <Wrapper
     :class="{
-      'is-checked': localChecked,
-      'is-disabled': props.disabled,
-      'use-theme-6-checkicon': props.theme === THEME_KEYNAME.THEME_6 && props.useTheme6CheckIcon
+      [IS_DISABLED]: props.disabled,
+      [USE_THEME_6_CHECKICON]: props.theme === THEME_KEYNAME.THEME_6 && props.useTheme6CheckIcon
     }"
     :data-theme="props.theme"
   >

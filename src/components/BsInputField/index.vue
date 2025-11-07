@@ -11,16 +11,22 @@ import {
   InputOuterSectionArea,
   InputSupportMasseage,
   InputErrorMasseage,
+  IS_READONLY,
+  IS_DISABLED,
+  IS_CONFIRM,
+  IS_ERROR,
+  IS_FOCUS,
   InputConfirmMasseage
 } from '@/components/BsInputField/index.style'
 import {INPUT_VALIDATE} from '@/constants/components/BsInputField/index'
 import regExp from '@/constants/RegExp'
 import StringUtil from '@/utils/StringUtil'
 import type {Props} from '@/components/BsInputField/index.type'
+import {THEME_KEYNAME} from '@/constants/components/BsInputField'
 
 const props = withDefaults(defineProps<Props>(), {
   tag: 'span',
-  theme: 'theme-1',
+  theme: THEME_KEYNAME.THEME_1,
   id: '',
   name: '',
   type: 'text',
@@ -29,11 +35,12 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   isError: false,
   isConfirm: false,
-  placeholder: 'sdf',
-  errorMessage: '에러메시지',
-  confirmMessage: '완료메시지',
+  placeholder: 'Placeholder text',
+  errorMessage: '',
+  confirmMessage: '',
+  useResetButton: true,
   customStyle: {background: '처음기본값'},
-  timeRange: '30:00'
+  timeRange: false
 })
 
 const localRef = ref()
@@ -59,6 +66,7 @@ function onInput(e: Event) {
 
 function onClickReset() {
   emits('update:modelValue', '')
+  emits('click:delete', '')
   setFocus()
 }
 
@@ -113,11 +121,11 @@ defineExpose({
   <Wrapper :as="props.tag" :data-theme="props.theme">
     <InputInnerSectionArea
       :class="{
-        'is-readonly': props.readonly,
-        'is-disabled': props.disabled,
-        'is-confirm': props.isConfirm,
-        'is-error': props.isError,
-        'is-focus': localIsFocus
+        [IS_READONLY]: props.readonly,
+        [IS_DISABLED]: props.disabled,
+        [IS_CONFIRM]: props.isConfirm,
+        [IS_ERROR]: props.isError,
+        [IS_FOCUS]: localIsFocus
       }"
     >
       <InputSectionLeftArea v-if="$slots.slotInputSectionLeftArea">
@@ -138,11 +146,17 @@ defineExpose({
         @keyup="onKeyup"
       />
       <InputSectionRightArea>
-        <InputValueResetButton v-if="localValue" data-testid="input-reset-button" @click="onClickReset" />
+        <InputValueResetButton
+          v-if="localValue && !props.disabled && props.useResetButton"
+          data-testid="input-reset-button"
+          @click="onClickReset"
+        />
         <slot name="slotInputSectionRightArea" />
       </InputSectionRightArea>
     </InputInnerSectionArea>
-    <InputOuterSectionArea>
+    <InputOuterSectionArea
+      v-if="$slots.slotSupportMessage || props.errorMessage || props.confirmMessage || props.timeRange"
+    >
       <InputSupportMasseage>
         <slot name="slotSupportMessage" />
       </InputSupportMasseage>

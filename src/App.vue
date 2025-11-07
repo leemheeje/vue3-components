@@ -49,6 +49,37 @@ onMounted(() => {
 const GlobalStyle = createGlobalStyle`
     :root {
       --ui-basic-component-fontsize: 16px;
+      --color-common-0: #FFFFFF;
+      --color-common-100: #000000;
+      --color-kcpgray-10: #191919;
+      --color-kcpgray-20: #2E2E2E;
+      --color-kcpgray-30: #464646;
+      --color-kcpgray-40: #5C5C5C;
+      --color-kcpgray-50: #727272;
+      --color-kcpgray-60: #999999;
+      --color-kcpgray-80: #B4B4B4;
+      --color-kcpgray-90: #CACACA;
+      --color-kcpgray-93: #E0E0E0;
+      --color-kcpgray-95: #EDEDED;
+      --color-kcpgray-97: #F6F6F6;
+      --color-kcpblue-50: #2196F3;
+      --color-kcpblue-60: #49A9F5;
+      --color-kcpblue-90: #AEDCFF;
+      --color-kcpblue-92: #D0EBFF;
+      --color-kcpblue-93: #E5F4FF;
+      --color-kcpred-50: #FA2828;
+      --color-semantic-chart-main-blue: #5BB0FF;
+      --color-semantic-chart-main-mint: #63E385;
+      --color-semantic-chart-main-yellow: #FBC74F;
+      --color-semantic-chart-main-orange: #FF9D40;
+      --color-semantic-chart-main-lime: #B3E750;
+      --color-semantic-chart-main-cyan: #70E1E8;
+      --color-semantic-chart-main-indigo: #6688FF;
+      --color-semantic-chart-main-pink: #FF91B0;
+      --color-semantic-chart-main-green: #4DCFA2;
+      --color-semantic-chart-main-purple: #A382FF;
+      --color-semantic-chart-main-red: #FD6B6B;
+      --color-semantic-chart-main-teal: #3BBBBC;
     }
   `
 const value1 = ref('한국어만asdf123!@#!   sdf 출력asdf')
@@ -77,11 +108,11 @@ function test() {
   <BsModal v-model="modalmodel">
     <BsButton>sdf</BsButton>
     <BsButton size="size-default">size-d12efault</BsButton>
-    <BsButton theme="theme-default-outline" :color="`Gray/Lightgray_01`">size-default</BsButton>
   </BsModal>
   <button @click="modalmodel = !modalmodel">modalmodel</button>
   <br />
   <BsButton>sdf</BsButton>
+  <BsButton theme="theme-default-outline" :color="`kcpgray/10`">kcpgray/10</BsButton>
   <BsButton size="size-default">size-d12efault</BsButton>
   <BsButton theme="theme-default-outline" :color="`Gray/Lightgray_01`">size-default</BsButton>
   <BsButton :color="`Gray/Lightgray_01`">Gray/Lightgray_01</BsButton>

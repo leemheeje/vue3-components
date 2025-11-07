@@ -5,9 +5,9 @@ import {DESIGNCONFIG_ICON_MAP, DESIGNCONFIG_KEYNAME_COLOR, _toGetBackgroundSVG} 
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'icon_cancel_line',
-  color: DESIGNCONFIG_KEYNAME_COLOR['Gray/Black'],
-  width: '24px',
-  height: '24px'
+  color: DESIGNCONFIG_KEYNAME_COLOR['common-100'],
+  width: '20px',
+  height: '20px'
 })
 </script>
 

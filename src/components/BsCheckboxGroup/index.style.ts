@@ -23,7 +23,7 @@ export const Items = styled.div`
   }
 `
 export const Item = styled.div`
-  flex: 1;
+  flex: auto;
   ${Wrapper},${InputLabel} {
     display: flex;
     width: 100%;

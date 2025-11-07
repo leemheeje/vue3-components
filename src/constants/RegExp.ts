@@ -38,13 +38,13 @@ const RegExp = Object.freeze({
   korSpecialReplace: /[^ㄱ-ㅎ|ㅏ-ㅣ|가-힣~`'"*+!@#$%^&()_={}[\]:;,.<>\\/?|-]/g,
   // String.replace() 영문+특수문자빼고 다 삭제
   enSpecialReplace: /[^a-zA-Z~`'"*+!@#$%^&()_={}[\]:;,.<>\\/?|-]/g,
-  // test Accept 문서파일
   testFileAcceptDocument:
-    /^application\/(pdf|msword|vnd\.ms-excel|vnd\.openxmlformats-officedocument\.(wordprocessingml|spreadsheetml|presentationml)\.document)$/i,
-  // test Accept 이미지파일
+    /^application\/(pdf|msword|vnd\.ms-excel|vnd\.openxmlformats-officedocument\.(wordprocessingml|spreadsheetml|presentationml)\.document)$|^text\/plain$|^application\/json$/,
   testFileAcceptImage: /^image\/(jpeg|png|gif|bmp|svg\+xml)$/,
-  // test Accept 텍스트파일
-  testFileAcceptText: /^text\/.+$/
+  testFileAcceptText: /^text\/.+$|^application\/(json|xml)$/,
+  testFileAcceptVideo: /^video\/.+$/,
+  testFileAcceptAudio: /^audio\/.+$/,
+  testFileAcceptZip: /^application\/(zip|x-rar-compressed|x-7z-compressed)$/
 })
 
 export default RegExp

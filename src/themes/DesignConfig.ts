@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import * as KeyNamegroup from '@/themes/common/keynameGroup'
-import iconMapGroup from '@/themes/common/iconMapGroup'
+import iconMapGroup, {ICON_MAP_KEYNAME} from '@/themes/common/iconMapGroup'
 import {css} from '@vue-styled-components/core'
 
 export interface Type {
@@ -8,9 +8,15 @@ export interface Type {
   typography: Record<string, any>
 }
 
-export const DESIGNCONFIG_KEYNAME_TYPO = KeyNamegroup.DESIGNCONFIG_KEYNAME_TYPO
-export const DESIGNCONFIG_KEYNAME_COLOR = KeyNamegroup.DESIGNCONFIG_KEYNAME_COLOR
-export const DESIGNCONFIG_ICON_MAP = iconMapGroup
+export const CSS_FONTFAMLIY_NAME = 'Pretendard'
+export const DESIGNCONFIG_KEYNAME_ROOT_COLOR: Record<string, any> = KeyNamegroup.DESIGNCONFIG_KEYNAME_ROOT_COLOR
+export const DESIGNCONFIG_KEYNAME_ROOT_CHART_COLOR: Record<string, any> =
+  KeyNamegroup.DESIGNCONFIG_KEYNAME_ROOT_CHART_COLOR
+export const DESIGNCONFIG_KEYNAME_TYPO: Record<string, any> = KeyNamegroup.DESIGNCONFIG_KEYNAME_TYPO
+export const DESIGNCONFIG_KEYNAME_COLOR: Record<string, any> = KeyNamegroup.DESIGNCONFIG_KEYNAME_COLOR
+export const DESIGNCONFIG_KEYNAME_CHART_COLOR: Record<string, any> = KeyNamegroup.DESIGNCONFIG_KEYNAME_CHART_COLOR
+export const DESIGNCONFIG_ICON_MAP: Record<string, any> = iconMapGroup
+export const DESIGNCONFIG_KEYNAME_ICON: Record<string, any> = ICON_MAP_KEYNAME
 
 export const _toCSSUnit = (s: string) =>
   _.replace(s, /(-?\d+(\.\d+)?)px/g, (__, v) => {
@@ -30,7 +36,19 @@ export const _toCSSParse = (params: Record<string, any>) =>
 export const _toGetBackgroundSVG = (s: string, c?: string) => {
   const reg = new RegExp(/#([0-9a-fA-F]{3,6})\b/g)
   const _v = `data:image/svg+xml;utf8`
-  const _c = c || '#000'
+  const _c =
+    (() => {
+      const regExp = /--[\w-]+/
+      if (c) {
+        if (regExp.test(c)) {
+          return Object.values(DESIGNCONFIG_KEYNAME_ROOT_COLOR).find(
+            (color) => color.property === (c as any).match(regExp)[0]
+          )?.value
+        } else {
+          return c
+        }
+      }
+    })() || '#000'
   const _s = s.replace(reg, _c).replace(reg, '%23$1')
   return `url('${_v},${_s}')`
 }
@@ -65,7 +83,7 @@ export default class DesignConfig {
   }
   static typographyParams = (params: Record<string, any>) => ({
     ...{
-      'font-family': 'Pretendard',
+      'font-family': CSS_FONTFAMLIY_NAME,
       'font-size': _toCSSUnit('22px'),
       'font-weight': 400,
       'line-height': _toCSSUnit('35.2px'),
@@ -141,33 +159,36 @@ export default class DesignConfig {
       'font-weight': 400,
       'line-height': _toCSSUnit('18.2px')
     }),
+    [DESIGNCONFIG_KEYNAME_TYPO['Body3/Medium']]: this.typographyParams({
+      'font-size': _toCSSUnit('14px'),
+      'font-weight': 500,
+      'line-height': '140%'
+    }),
     [DESIGNCONFIG_KEYNAME_TYPO['Caption1/Medium']]: this.typographyParams({
       'font-size': _toCSSUnit('12px'),
       'font-weight': 500,
       'line-height': _toCSSUnit('16.7px')
     })
   }
-  static color = {
-    [DESIGNCONFIG_KEYNAME_COLOR['Gray/Black']]: '#000000',
-    [DESIGNCONFIG_KEYNAME_COLOR['Gray/Darkgray_01']]: '#212121',
-    [DESIGNCONFIG_KEYNAME_COLOR['Gray/Darkgray_02']]: '#454545',
-    [DESIGNCONFIG_KEYNAME_COLOR['Gray/Darkgray_03']]: '#535353',
-    [DESIGNCONFIG_KEYNAME_COLOR['Gray/Darkgray_04']]: '#646464',
-    [DESIGNCONFIG_KEYNAME_COLOR['Gray/Darkgray_05']]: '#767676',
-    [DESIGNCONFIG_KEYNAME_COLOR['Gray/Darkgray_06']]: '#999999',
-    [DESIGNCONFIG_KEYNAME_COLOR['Gray/Lightgray_01']]: '#CCCCCC',
-    [DESIGNCONFIG_KEYNAME_COLOR['Gray/Lightgray_02']]: '#E1E1E1',
-    [DESIGNCONFIG_KEYNAME_COLOR['Gray/Lightgray_03']]: '#F0F0F0',
-    [DESIGNCONFIG_KEYNAME_COLOR['Gray/Lightgray_04']]: '#F7F7F7',
-    [DESIGNCONFIG_KEYNAME_COLOR['Gray/Lightgray_05']]: '#FAFAFA',
-    [DESIGNCONFIG_KEYNAME_COLOR['Gray/White']]: '#FFFFFF',
-    [DESIGNCONFIG_KEYNAME_COLOR['Primary/Primary_01']]: '#2196F3',
-    [DESIGNCONFIG_KEYNAME_COLOR['Primary/Primary_02']]: '#2196F3',
-    [DESIGNCONFIG_KEYNAME_COLOR['Primary/Primary_03']]: '#2196F3',
-    [DESIGNCONFIG_KEYNAME_COLOR['Primary/Primary_04']]: '#2196F3',
-    [DESIGNCONFIG_KEYNAME_COLOR['Primary/Primary_05']]: '#E5F4FF',
-    [DESIGNCONFIG_KEYNAME_COLOR['Warning/Point_Red']]: '#FA2828'
-  }
+  static color = Object.keys(DESIGNCONFIG_KEYNAME_ROOT_COLOR).reduce((o: Record<string, any>, v: string) => {
+    o[v] = `var(${DESIGNCONFIG_KEYNAME_ROOT_COLOR[v].property})`
+    return o
+  }, {})
+  static setProperty = Object.values(DESIGNCONFIG_KEYNAME_ROOT_COLOR).reduce((o, {property, value}) => {
+    o[property] = value
+    return o
+  }, {})
+  static chartColor = Object.keys(DESIGNCONFIG_KEYNAME_ROOT_CHART_COLOR).reduce((o: Record<string, any>, v: string) => {
+    o[v] = `var(${DESIGNCONFIG_KEYNAME_ROOT_CHART_COLOR[v].property})`
+    return o
+  }, {})
+  static chartSetProperty = Object.values(DESIGNCONFIG_KEYNAME_ROOT_CHART_COLOR).reduce((o, {property, value}) => {
+    o[property] = value
+    return o
+  }, {})
 }
-export const DesignConfigTypography = DesignConfig.typography
-export const DesignConfigColor = DesignConfig.color
+export const DesignConfigTypography: Record<string, any> = DesignConfig.typography
+export const DesignConfigColor: Record<string, any> = DesignConfig.color
+export const DesignConfigSetProperty: Record<string, any> = DesignConfig.setProperty
+export const DesignConfigChartColor: Record<string, any> = DesignConfig.chartColor
+export const DesignConfigChartSetProperty: Record<string, any> = DesignConfig.chartSetProperty

@@ -5,6 +5,7 @@ import {
   BsPaginationInner,
   BsPaginationItem,
   BsPaginationButton,
+  IS_ACTIVE,
   BsPaginationisMore
 } from '@/components/BsPagination/index.style'
 import type {Props} from '@/components/BsPagination/index.type'
@@ -14,7 +15,7 @@ import _ from 'lodash'
 const props = withDefaults(defineProps<Props>(), {
   theme: THEME_KEYNAME.THEME_1,
   totalRow: 0,
-  perViewCount: 3,
+  perViewCount: 10,
   useMoreUi: false,
   modelValue: 1
 })
@@ -112,7 +113,7 @@ function onClick(n: number | string) {
         <template v-else>
           <BsPaginationButton
             :class="{
-              'is-active': localValue === item
+              [IS_ACTIVE]: localValue === item
             }"
             @click="onClick(item)"
             >{{ item }}</BsPaginationButton

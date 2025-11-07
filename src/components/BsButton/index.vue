@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {computed, ref} from 'vue'
 import {
+  IS_BLOCK,
   WrapperButton,
   WrapperRouterLink,
   ButtonInnerSection,
@@ -16,6 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
   theme: THEME_KEYNAME.DEFAULT,
   color: '',
   size: SIZE_KEYNAME.DEFAULT,
+  isBlock: false,
   name: '',
   value: '',
   to: '',
@@ -38,11 +40,11 @@ const WrapperProps = computed(() =>
       }
 )
 const localDefaultColor = computed(() => {
-  let _color: keyof typeof COLOR_KEYNAME = COLOR_KEYNAME['Primary/Primary_01']
+  let _color: keyof typeof COLOR_KEYNAME = COLOR_KEYNAME['kcpblue/50']
   switch (props.theme) {
     case THEME_KEYNAME.DEFAULT_OUTLINE:
     case THEME_KEYNAME.PILLS_OUTLINE:
-      _color = COLOR_KEYNAME['Gray/Darkgray_01']
+      _color = COLOR_KEYNAME['kcpgray/10']
       break
   }
   return _color
@@ -68,6 +70,9 @@ defineExpose({
     :data-color="props.color || localDefaultColor"
     :data-size="props.size"
     v-bind="WrapperProps"
+    :class="{
+      [IS_BLOCK]: props.isBlock
+    }"
     @click="onClick"
   >
     <ButtonInnerSection>

@@ -61,7 +61,7 @@ function onChange(item: Record<string, any> | string, e: Event) {
         :name="localName"
         :value="typeof item === 'string' ? item : JSON.stringify(item)"
         :use-theme6-check-icon="props.useTheme6CheckIcon"
-        :disabled="props.disabled"
+        :disabled="props.disabled || (typeof item === 'object' && item.disabled)"
         @change="(e) => onChange(item, e)"
       >
         <template v-if="$slots.default" #default>

@@ -14,7 +14,7 @@ import {THEME_KEYNAME} from '@/constants/components/BsPagination/index'
 
 const THEME_1 = THEME_KEYNAME.THEME_1
 const THEME_2 = THEME_KEYNAME.THEME_2
-const IS_ACTIVE = 'is-active'
+export const IS_ACTIVE = 'is-active'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -40,20 +40,21 @@ export const BsPaginationButtonCss = css`
   ${css`
     ${_toCSSParse(DesignConfigTypography[DESIGNCONFIG_KEYNAME_TYPO['Body1/Bold']])}
   `};
-  color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Gray/Darkgray_01']]};
+  color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['kcpgray/10']]};
   border-radius: ${_toCSSUnit('4px')};
   ${Wrapper}[data-theme="${THEME_1}"] & {
-    border-color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Gray/Lightgray_02']]};
+    border-color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['kcpgray/93']]};
+    background-color: #fff;
     &.${IS_ACTIVE} {
-      border-color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Primary/Primary_01']]};
-      color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Primary/Primary_01']]};
+      border-color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['kcpblue/50']]};
+      color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['kcpblue/50']]};
     }
   }
   ${Wrapper}[data-theme="${THEME_2}"] & {
     &.${IS_ACTIVE} {
-      border-color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Primary/Primary_01']]};
-      background-color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Primary/Primary_01']]};
-      color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Gray/White']]};
+      border-color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['kcpblue/50']]};
+      background-color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['kcpblue/50']]};
+      color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['common-0']]};
     }
   }
 
@@ -63,58 +64,58 @@ export const BsPaginationButtonCss = css`
       const _c = c as keyof typeof DESIGNCONFIG_KEYNAME_COLOR
       return _toGetBackgroundSVG(DESIGNCONFIG_ICON_MAP[_t], DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR[_c]])
     }
-    const disabledBackgroundColor = DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Gray/Lightgray_03']]
-    const disabledBorderColor = DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Gray/Lightgray_02']]
+    const disabledBackgroundColor = DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['kcpgray/95']]
+    const disabledBorderColor = DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['kcpgray/93']]
 
     if (props.type === 'prev') {
       return `
-        background-image: ${getIcons('icon_arrow_s_before_line', 'Gray/Darkgray_01')};
+        background-image: ${getIcons('icon_arrow_s_before_line', 'kcpgray/10')};
          [data-theme="${THEME_1}"] &:disabled{
             background-color: ${disabledBackgroundColor};
             border-color: ${disabledBorderColor};
-            background-image: ${getIcons('icon_arrow_s_before_line', 'Gray/Darkgray_06')};
+            background-image: ${getIcons('icon_arrow_s_before_line', 'kcpgray/80')};
         }
          [data-theme="${THEME_2}"] &:disabled{
-            background-image: ${getIcons('icon_arrow_s_before_line', 'Gray/Darkgray_06')};
+            background-image: ${getIcons('icon_arrow_s_before_line', 'kcpgray/80')};
         }
         `
     }
     if (props.type === 'dprev') {
       return `
-       background-image: ${getIcons('icon_arrow_double_left_line', 'Gray/Darkgray_01')};
+       background-image: ${getIcons('icon_arrow_double_left_line', 'kcpgray/10')};
          [data-theme="${THEME_1}"] &:disabled{
             background-color: ${disabledBackgroundColor};
             border-color: ${disabledBorderColor};
-            background-image: ${getIcons('icon_arrow_double_left_line', 'Gray/Darkgray_06')};
+            background-image: ${getIcons('icon_arrow_double_left_line', 'kcpgray/80')};
         }
         [data-theme="${THEME_2}"] &:disabled{
-            background-image: ${getIcons('icon_arrow_double_left_line', 'Gray/Darkgray_06')};
+            background-image: ${getIcons('icon_arrow_double_left_line', 'kcpgray/80')};
         }
         `
     }
     if (props.type === 'next') {
       return `
-      background-image: ${getIcons('icon_arrow_s_next_line', 'Gray/Darkgray_01')};
+      background-image: ${getIcons('icon_arrow_s_next_line', 'kcpgray/10')};
         [data-theme="${THEME_1}"] &:disabled{
             background-color: ${disabledBackgroundColor};
             border-color: ${disabledBorderColor};
-            background-image: ${getIcons('icon_arrow_s_next_line', 'Gray/Darkgray_06')};
+            background-image: ${getIcons('icon_arrow_s_next_line', 'kcpgray/80')};
         }
         [data-theme="${THEME_2}"] &:disabled{
-            background-image: ${getIcons('icon_arrow_s_next_line', 'Gray/Darkgray_06')};
+            background-image: ${getIcons('icon_arrow_s_next_line', 'kcpgray/80')};
         }
         `
     }
     if (props.type === 'dnext') {
       return `
-      background-image: ${getIcons('icon_arrow_double_right_line', 'Gray/Darkgray_01')};
+      background-image: ${getIcons('icon_arrow_double_right_line', 'kcpgray/10')};
          [data-theme="${THEME_1}"] &:disabled{
             background-color: ${disabledBackgroundColor};
             border-color: ${disabledBorderColor};
-            background-image: ${getIcons('icon_arrow_double_right_line', 'Gray/Darkgray_06')};
+            background-image: ${getIcons('icon_arrow_double_right_line', 'kcpgray/80')};
         }
          [data-theme="${THEME_2}"] &:disabled{
-            background-image: ${getIcons('icon_arrow_double_right_line', 'Gray/Darkgray_06')};
+            background-image: ${getIcons('icon_arrow_double_right_line', 'kcpgray/80')};
         }
         `
     }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {computed, ref, watch} from 'vue'
+import {computed, ref, watch, onMounted, nextTick} from 'vue'
 import {
-  Wrapper,
+  WrapperTextarea as Wrapper,
   InputInnerSectionArea,
   InputTextarea,
   InputInnerBottomSectionArea,
@@ -12,11 +12,21 @@ import {
   TextareaButtonGroup,
   InputConfirmMasseage
 } from '@/components/BsTextarea/index.style'
+import {
+  INPUT_HEIGHT,
+  IS_READONLY,
+  IS_DISABLED,
+  IS_CONFIRM,
+  IS_ERROR,
+  IS_FOCUS
+} from '@/components/BsInputField/index.style'
+import {_toCSSUnit} from '@/themes/DesignConfig'
 import type {Props} from '@/components/BsTextarea/index.type'
+import {THEME_KEYNAME} from '@/constants/components/BsInputField'
 
 const props = withDefaults(defineProps<Props>(), {
   tag: 'span',
-  theme: 'theme-1',
+  theme: THEME_KEYNAME.THEME_1,
   id: '',
   name: '',
   type: 'text',
@@ -25,13 +35,16 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   isError: false,
   isConfirm: false,
-  placeholder: 'sdf',
-  errorMessage: '에러메시지',
-  confirmMessage: '완료메시지',
+  placeholder: '',
+  errorMessage: '',
+  confirmMessage: '',
   useLengthCheck: false,
-  maxlength: 2000,
+  useOuterButton: false,
+  useResponseHeight: false,
+  maxHeight: '',
+  maxlength: 0,
   customStyle: {background: '처음기본값'},
-  timeRange: '30:00'
+  timeRange: '0'
 })
 const localRef = ref()
 const localValue = ref('')
@@ -48,12 +61,29 @@ watch(
   {immediate: true}
 )
 
+onMounted(() => {
+  nextTick(() => {
+    if (typeof window !== 'undefined') {
+      setResponHeight(localRef.value)
+    }
+  })
+})
+
 function onInput(e: Event) {
   const inputElement = e.target as HTMLTextAreaElement
   const _setValue = inputElement.value
   inputElement.value = _setValue
+  setResponHeight(e)
   emits('input', e)
   emits('update:modelValue', _setValue)
+}
+
+function setResponHeight(e: Event | any) {
+  const inputElement = (e.target as HTMLTextAreaElement) || (e.$el as HTMLTextAreaElement)
+  if (inputElement && props.useResponseHeight) {
+    inputElement.style.height = _toCSSUnit(INPUT_HEIGHT)
+    inputElement.style.height = _toCSSUnit(`${inputElement.scrollHeight}px`)
+  }
 }
 
 function setFocus() {
@@ -78,14 +108,19 @@ defineExpose({
 </script>
 
 <template>
-  <Wrapper>
+  <Wrapper
+    :data-theme="props.theme"
+    :class="{
+      'use-response-height': props.useResponseHeight
+    }"
+  >
     <InputInnerSectionArea
       :class="{
-        'is-readonly': props.readonly,
-        'is-disabled': props.disabled,
-        'is-confirm': props.isConfirm,
-        'is-error': props.isError,
-        'is-focus': localIsFocus
+        [IS_READONLY]: props.readonly,
+        [IS_DISABLED]: props.disabled,
+        [IS_CONFIRM]: props.isConfirm,
+        [IS_ERROR]: props.isError,
+        [IS_FOCUS]: localIsFocus
       }"
     >
       <InputTextarea
@@ -97,28 +132,33 @@ defineExpose({
         :readonly="props.readonly"
         :disabled="props.disabled"
         :maxlength="props.useLengthCheck ? props.maxlength : null"
+        :style="{
+          'max-height': _toCSSUnit(props.maxHeight)
+        }"
         @input="onInput"
         @focus="onFocus"
         @blur="onBlur"
         @keyup="onKeyup"
       />
-      <InputInnerBottomSectionArea>
+      <InputInnerBottomSectionArea
+        v-if="($slots.slotTextareaButtonGroup && !props.useOuterButton) || props.useLengthCheck"
+      >
         <InputByteCheckArea v-if="props.useLengthCheck">
           {{ getCurrentLength }}/{{ props.maxlength }}
         </InputByteCheckArea>
-        <TextareaButtonGroup v-if="$slots.slotTextareaButtonGroup">
+        <TextareaButtonGroup v-if="$slots.slotTextareaButtonGroup && !props.useOuterButton">
           <slot name="slotTextareaButtonGroup" />
         </TextareaButtonGroup>
       </InputInnerBottomSectionArea>
     </InputInnerSectionArea>
-    <InputOuterSectionArea>
+    <InputOuterSectionArea v-if="$slots.slotSupportMessage || props.errorMessage || props.confirmMessage">
       <InputSupportMasseage>
         <slot name="slotSupportMessage" />
       </InputSupportMasseage>
       <InputErrorMasseage>{{ props.errorMessage }}</InputErrorMasseage>
       <InputConfirmMasseage>{{ props.confirmMessage }}</InputConfirmMasseage>
     </InputOuterSectionArea>
-    <TextareaButtonGroup v-if="$slots.slotTextareaButtonGroup" class="use-outer-section">
+    <TextareaButtonGroup v-if="$slots.slotTextareaButtonGroup && props.useOuterButton" class="use-outer-section">
       <slot name="slotTextareaButtonGroup" />
     </TextareaButtonGroup>
   </Wrapper>

@@ -17,6 +17,7 @@ const THEME_2 = THEME_KEYNAME.THEME_2
 
 export const Wrapper = styled.span`
   position: relative;
+  display: inline-flex;
 `
 const arrowCSS = css`
   width: 0;
@@ -24,10 +25,10 @@ const arrowCSS = css`
   border-left: ${_toCSSUnit('8px')} solid transparent;
   border-right: ${_toCSSUnit('8px')} solid transparent;
   ${Wrapper}[data-theme="${THEME_1}"] & {
-    border-bottom: ${_toCSSUnit('8px')} solid ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Gray/Darkgray_02']]};
+    border-bottom: ${_toCSSUnit('8px')} solid ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['kcpgray/20']]};
   }
   ${Wrapper}[data-theme="${THEME_2}"] & {
-    border-bottom: ${_toCSSUnit('8px')} solid ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Gray/White']]};
+    border-bottom: ${_toCSSUnit('8px')} solid ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['common-0']]};
   }
 `
 export const TooltipBoxTextArea = styled.div`
@@ -39,17 +40,23 @@ export const TooltipBoxTextArea = styled.div`
 export const TooltipBoxCloseButton = styled.button`
   border: none;
   background: transparent;
-  max-width: ${_toCSSUnit('10px')};
-  width: ${_toCSSUnit('10px')};
-  height: ${_toCSSUnit('10px')};
+  max-width: ${_toCSSUnit('16px')};
+  width: ${_toCSSUnit('16px')};
+  height: ${_toCSSUnit('16px')};
   display: block;
   cursor: pointer;
   background: transparent no-repeat center center
     ${_toGetBackgroundSVG(
-      DESIGNCONFIG_ICON_MAP['icon_cancel_line'],
-      DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Gray/White']]
+      DESIGNCONFIG_ICON_MAP['icon_cancle'],
+      DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['common-0']]
     )};
   background-size: 100%;
+  ${Wrapper}[data-theme="${THEME_2}"] & {
+    background-image: ${_toGetBackgroundSVG(
+      DESIGNCONFIG_ICON_MAP['icon_cancle'],
+      DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['common-100']]
+    )};
+  }
 `
 export const TooltipBox = styled.div`
   z-index: 1000;
@@ -65,15 +72,16 @@ export const TooltipBox = styled.div`
     ${arrowCSS}
   }
   ${Wrapper}[data-theme="${THEME_1}"] & {
-    background-color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Gray/Darkgray_02']]};
+    background-color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['kcpgray/20']]};
     ${TooltipBoxTextArea} {
-      color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Gray/White']]};
+      color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['common-0']]};
     }
   }
   ${Wrapper}[data-theme="${THEME_2}"] & {
-    background-color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Gray/White']]};
+    background-color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['common-0']]};
+    box-shadow: 0 ${_toCSSUnit('10px')} ${_toCSSUnit('10px')} rgba(0, 0, 0, 0.08);
     ${TooltipBoxTextArea} {
-      color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['Gray/Darkgray_02']]};
+      color: ${DesignConfigColor[DESIGNCONFIG_KEYNAME_COLOR['kcpgray/20']]};
     }
   }
 

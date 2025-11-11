@@ -81,11 +81,16 @@ function onClick() {
         @change="onChange"
         @click="onClick"
       >
-        <template v-if="props.items.length">
-          <option v-for="(item, index) in localItems" :key="index" :value="item[props.codeId]">
-            {{ item[props.codeName] }}
-            <slot name="default" :item="item" />
-          </option>
+        <template v-if="!$slots.default">
+          <template v-if="props.items.length">
+            <option v-for="(item, index) in localItems" :key="index" :value="item[props.codeId]">
+              {{ item[props.codeName] }}
+              <slot name="default" :item="item" />
+            </option>
+          </template>
+        </template>
+        <template v-else>
+          <slot name="default" />
         </template>
       </InputSelect>
       <InputSectionRightArea>
